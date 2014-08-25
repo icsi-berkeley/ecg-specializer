@@ -1,4 +1,4 @@
-Project Name: ECG-Specializer
+Project Name: ECG-Specializer /n
 Contains:
 analyzer.sh & analyzer.bat: shell/batch files to run Analyzer
 Specializer_Tutorial: contains instructions to run program
