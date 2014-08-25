@@ -1,0 +1,64 @@
+  //
+// Modifier Schemas
+//
+
+
+// A simple modifier schema which is the root of the modifier schema hierarchy
+
+schema Modification
+	roles
+		domain: @entity  // constraint on modifier 10/27/12
+		kind // @modifier-type   comparative, etc.
+    	modifier
+     	modifiedThing  // could be verb, etc.
+     	negated //@yes or blank
+
+schema AdverbModification  // 3/3/13
+	subcase of Modification 
+	roles
+
+schema AdjectiveModification  // modified thing is an RD  
+	subcase of Modification 
+	roles
+	modifiedThing: RD
+	constraints
+		domain <--> modifiedThing.ontological-category  // 3/3/13 only for RD
+		
+schema ParticipleModification  // 10/16/13  
+	subcase of AdjectiveModification 
+	roles
+		modifiedThing: RD	
+		modifier: Process  // meaning of PresentParticiple
+	constraints
+		ignore domain <--> modifiedThing.ontological-category	
+		 
+// A simple modifier schema for properties like "big" or "red"
+schema PropertyModifier  
+	subcase of AdjectiveModification // does not use modifier role
+   	roles
+     	  domain: @entity //or below
+     	  property // becomes scale ?? object-property, other uses ??
+     	  value //string, number - profiled value 
+	 constraints
+		
+schema ScalarModifier 
+	subcase of PropertyModifier  // does not use modifier role
+   	roles
+     	  property: @scale  
+	 constraints 
+
+schema NP-PP-Modifier //used 12/13/12
+	subcase of Modification
+	roles
+		modifier	
+		
+		
+//
+
+	
+schema ScalarAdverbModifier 
+	subcase of AdverbModification  // does not use modifier role
+   	roles
+     	property: @scale
+        value //string, number    
+	 constraints		

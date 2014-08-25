@@ -1,0 +1,135 @@
+
+// grammaticalschemas.grm
+//
+// A simple schema for the orthographic form associated with Word cxns
+schema WordForm
+  roles
+    orth 
+
+// REFERENT DESCRIPTOR (RD) schemas
+
+schema RD // meaning of NP 
+  roles
+    ontological-category //: @entity  
+    givenness: @givennessValues  
+    referent 
+    number // : @RDnumberValues
+	gender: @genderValues
+	bounding: @boundingValues
+	scale: @scale // 
+	hedge: @hedgeVal  // @fake, etc  
+	//continuity: @continuityValues 
+    amount: Amount // schemas for quantifiers, etc. 
+     extensions: Extensions //  schemas for affordances, etc
+
+
+schema VariabledRD  // ?L2, etc. 
+	subcase of RD //  7/18/14
+	roles	
+
+schema QuantifiedRD  // general case 
+	subcase of RD //, RelativizedRD  7/18/14
+	roles
+      	amount: QuantitySchema //subcases include numbers, “several”, etc. ****name?**
+ 		units
+
+schema QuantifiedSpatialRD
+	subcase of QuantifiedRD
+	roles
+      	units: @spatial-units	// check the typing wrt all kinds
+
+// schemas to fill the amount role in RD
+
+schema Amount   // general schema parent of all
+
+schema QuantitySchema  // numerical, some, "a few", etc.
+  subcase of Amount
+  roles
+  	value  // numbers ++
+  	number: @RDnumberValues
+ 
+  schema AmountSchema  // non-numerical: some, 
+  subcase of Amount
+  roles  
+    value  // not numbers ++
+    
+ schema Other  // stub
+  subcase of Amount
+ 
+ //Extensions 
+ schema Extensions  // parent of all Extension schemas
+    roles
+       property: RD
+ 
+
+Schema NoExtension  //prevents unify when RD.extensions is unfilled
+	subcase of Extensions
+
+
+schema Artifact  
+	subcase of Extensions
+	roles
+		affordances: RD // later 
+		material: RD // @material
+	constraints
+		material.ontological-category <-- @material
+		
+schema Group  // for BoundedMultiplicity, "bunch of blocks"
+	subcase of Extensions
+	roles
+		value // specific, @bunch, etc
+		contents: RD // 
+	constraints
+		contents.number <-- @plural  // --> singular
+
+schema Container // short version
+	subcase of Artifact, BoundedObject  //  6/24/13
+	roles
+		contents: RD // @entity
+	constraints
+		contents.bounding <-- @indeterminate  // not for plurals 
+		
+// EVENT DESCRIPTOR (ED) schemas
+
+schema EventDescriptor // meaning of S
+	roles
+		eventProcess: Process		
+		e-features: EventFeatures
+		profiledProcess: Process	
+		profiledParticipant: RD 		
+		eventForm: @EventKind 			
+
+schema EventFeatures  // voice: @voice   also in Process - Drop
+	roles
+		subord  // subordinating conjunction, 
+		telicity	// USED in temporal in/for
+		duration  // USED in TemporalVP  
+		tense: @tense  // USED
+		modality: @modality  // USED
+		negated  // USED
+
+schema DiscourseElement //meaning of Utterance
+    roles
+        speaker: RD 	// used to be @generic-person
+        addressee: RD 	// used to be @generic-person
+        attentional_focus  // not used yet
+        content: EventDescriptor
+        // epistemic: epistemic status, probability   
+        mood: @mood			// one of declarative, imperative, ...
+    constraints
+		speaker.ontological-category <-- @sentient
+		addressee.ontological-category <-- @sentient
+		
+		
+// added 8/4/14 (ST) from base
+schema ComplexRD
+   subcase of RD 
+   roles
+   complexKind // : NPkind
+   
+schema ConjRD
+   subcase of ComplexRD
+   roles
+   		connective   // and or etc.
+      	rd1: RD
+     	rd2: RD		

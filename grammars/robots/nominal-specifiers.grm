@@ -1,0 +1,127 @@
+/***
+ ***
+ *** Specifiers (Determiners,  not RD)
+ ***
+ ***/
+
+general construction SpecifierPhrase
+  subcase of HasNominalFeatures
+  meaning: RD
+  
+general construction Specifier
+  subcase of Word, SpecifierPhrase
+  meaning: RD
+
+general construction Determiner
+   subcase of Specifier
+ 
+construction The
+   subcase of Determiner
+   form
+      constraints
+         self.f.orth <-- "the"
+   meaning
+      constraints
+         self.m.givenness <-- @uniquelyIdentifiable
+
+construction A
+   subcase of Determiner, Singular
+      form
+      constraints
+         self.f.orth <-- "a"
+   meaning
+      constraints
+         self.m.givenness <-- @typeIdentifiable
+         self.m.number <-- @singular
+         self.m.bounding <-- @determinate
+
+ 
+ // Added from Base, 8/18/14 (ST)
+ construction Another //  another big block, cf. another 2 blocks ~ 2 more blocks
+   subcase of Determiner, Singular
+      form
+      constraints
+         self.f.orth <-- "another"
+   meaning
+      constraints
+         self.m.givenness <-- @distinct 
+         self.m.number <-- @singular
+   		 self.m.bounding <-- @determinate 	
+   		 
+   		 
+// Numbers added 3/28/14
+general construction Quantifier // different meaning than Specifier  
+	subcase of Word, HasNominalFeatures
+	meaning: QuantitySchema
+   		
+general construction Number   //rename, check digits
+	subcase of Quantifier
+   	meaning: QuantitySchema
+      
+ construction One
+ 	subcase of Number
+   	form
+      	constraints
+         	self.f.orth <-- "one"
+   	meaning: QuantitySchema
+    	constraints
+      		self.m.value <-- "1"
+			self.m.number <-- @singular
+			
+construction Two
+  	subcase of Number
+	form
+      	constraints
+         	self.f.orth <-- "two"
+	meaning: QuantitySchema
+		constraints
+      		self.m.value <-- "2"
+			self.m.number <-- @plural
+			
+construction ZeroInDigits 
+     subcase of Number
+       form
+          constraints
+             self.f.orth <-- "0"
+       meaning: QuantitySchema
+        constraints
+              self.m.value <-- "0"
+
+construction OneInDigits
+     subcase of Number
+     constructional
+      constraints 
+          features.number <-- "singular"
+       form
+          constraints
+             self.f.orth <-- "1"
+       meaning: QuantitySchema
+        constraints
+              self.m.value <-- "1"
+              self.m.number <-- @singular
+
+construction TwoInDigits
+     subcase of Number
+      constructional
+      constraints 
+          features.number <-- "plural" 
+       form
+          constraints
+             self.f.orth <-- "2"
+       meaning: QuantitySchema
+        constraints
+            self.m.value <-- "2"
+			self.m.number <-- @plural
+			
+construction ThreeInDigits
+     subcase of Number
+     constructional
+      constraints 
+          features.number <-- "plural"   
+       form
+          constraints
+             self.f.orth <-- "3"
+       meaning: QuantitySchema
+        constraints
+            self.m.value <-- "3"
+			self.m.number <-- @plural

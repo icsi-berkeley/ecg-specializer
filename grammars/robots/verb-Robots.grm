@@ -1,0 +1,75 @@
+
+// 4/1/14
+ 
+general construction Return  
+   	subcase of LexicalVerb
+	meaning: MotionPath 
+      	constraints
+         	self.m.actionary <-- @move
+         	//self.m.protagonist.ontological-category <-- @moveable //both cases
+         	self.m.spg.goal <-- @home
+		
+construction ReturnBase 
+   	subcase of Return, BaseForm
+   	form
+      	constraints
+         	self.f.orth <-- "return"
+
+//serial VP stuff
+
+general construction ComplexVP
+  subcase of VP
+    constructional 
+        constituents
+         v1: HasVerbFeatures
+         v2: VP
+       constraints  	
+			v1.features  <-->  self.features
+		meaning: ComplexProcess 
+		    //self.m.p-features <--> v1.m.p-features 
+
+construction SerialVP  // robot, do X then do Y
+	subcase of ComplexVP 
+ 	constructional 
+        constituents
+         v1:VP
+         conj:SerialConjunction
+         v2:VP
+      form
+        constraints
+	       v1.f before conj
+	       conj before v2.f
+      meaning: SerialProcess
+        constraints
+        	self.m.protagonist <--> v1.m.protagonist
+        	v2.m.protagonist <--> v1.m.protagonist
+        	self.m.process1 <--> v1.m
+        	self.m.process2 <--> v2.m
+			self.m.connective <--> conj.m
+			ed.profiledParticipant <--> self.m.protagonist  // move to VP?
+
+
+
+/* Logical conjunctions, added 8/4/14 (ST) */
+general construction Conjunction
+	subcase of Word
+	
+	
+general construction LogicalConjunction
+	subcase of Conjunction 
+		
+construction And-Conjunction
+	subcase of LogicalConjunction
+	form
+	  constraints
+	    self.f.orth <-- "and"
+	
+construction Then-Serial
+	subcase of  SerialConjunction
+   	form
+		constraints
+         	self.f.orth <-- "then"
+
+general construction SerialConjunction 
+	subcase of Conjunction
+			

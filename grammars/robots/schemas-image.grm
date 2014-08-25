@@ -1,0 +1,99 @@
+ 
+schema TrajectorLandmark
+	roles
+		trajector: RD 
+		landmark: RD
+		 profiledArea: RD //  defined with respect to Landmark  
+	constraints
+		trajector.ontological-category <-- @physicalEntity
+		//landmark.ontological-category <-- @region  +  11/5/13  
+		profiledArea.ontological-category <-- @location 
+
+schema SPG   
+	subcase of TrajectorLandmark
+	roles
+		source: RD
+		path: RD
+		goal: RD
+		distance  // ???*********7/17/13
+
+
+schema BoundedRegion
+	roles
+		boundary: RD 
+		interior: RD 
+		exterior: RD 
+	constraints
+		boundary.ontological-category <-- @closedCurve
+		interior.ontological-category <-- @region
+		exterior.ontological-category <-- @region
+		
+schema BoundedObject
+	subcase of BoundedRegion
+	roles
+		boundedObject: RD
+	constraints
+		boundedObject.ontological-category <-- @container
+
+schema SpatialRelation  //???????
+
+schema Proximity	
+	subcase of SpatialRelation
+	roles
+		center
+		proximalArea
+
+schema Contact // short version
+	subcase of SpatialRelation 
+	roles
+		entity1: RD // @entity 
+		entity2: RD // @entity
+	constraints
+		entity1.ontological-category <-- @entity
+		entity2.ontological-category <-- @entity
+		
+
+schema Possession  //revised 11/30/12
+   roles
+   	   kind:@possessionKind
+	   possessor:RD
+	   possessed:RD
+		
+
+// Relation Schemas, currently for copula, need to be more general 11/27/12
+
+schema RefRelation  // general form  11/10/12
+   roles
+   		first: RD
+   		second: RD
+   
+schema RefIdentify  // used in base CopularVPNominal, too general 11/15/12
+    subcase of RefRelation
+	constraints
+   	first.ontological-category <--> second.ontological-category
+   	first.number <--> second.number
+   	first.gender <--> second.gender		
+   	
+schema PartWhole
+  subcase of Extensions
+  roles
+     whole
+     part
+     
+     
+// Schema "sidedness", used for "behind", etc. - 8/5/14 (ST), for testing
+schema Sidedness
+  subcase of Extensions
+  evokes PartWhole as pw  
+  roles
+     front: RD
+     back: RD
+     obj
+  constraints
+     obj <--> pw.whole
+     front.ontological-category <-- @front
+     back.ontological-category <-- @back
+   
+ 
+  
+     			

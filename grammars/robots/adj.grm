@@ -1,0 +1,219 @@
+  //
+// Adjectives
+// ========== 
+// 
+
+general construction Adjective  // parallel to Verb, etc. \
+	subcase of  RootType  // for testing
+	//subcase of HasNominalFeatures   **** for agreement in Spanish, etc.
+	meaning: Modification
+
+general construction LexicalAdjective
+   subcase of Adjective, Word
+    
+general construction PropertyAdjective  // parallel to Verb, etc. \
+	subcase of  LexicalAdjective
+	//subcase of HasNominalFeatures   **** for agreement in Spanish, etc.
+	meaning: PropertyModifier	
+
+general construction Color  //subcase of non-scale Adj
+  subcase of PropertyAdjective    
+   meaning: PropertyModifier
+    constraints
+       self.m.property <-- @color 
+	   self.m.domain <-- @physicalEntity 
+	    
+
+
+construction Red
+  subcase of Color
+   form
+      constraints
+         self.f.orth <-- "red"  
+   meaning: PropertyModifier
+    constraints
+       	self.m.value <-- @red 
+
+construction Blue
+  subcase of Color
+   form
+      constraints
+         self.f.orth <-- "blue"  
+   meaning: PropertyModifier
+    constraints
+       	self.m.value <-- @blue        	
+
+construction Pink
+  subcase of Color
+   form
+      constraints
+         self.f.orth <-- "pink"  
+   meaning: PropertyModifier
+    constraints
+       	self.m.value <-- @pink    
+       	
+construction Green
+  subcase of Color
+   form
+      constraints
+         self.f.orth <-- "green"  
+   meaning: PropertyModifier
+    constraints
+       	self.m.value <-- @green         
+       	
+construction Yellow
+  subcase of Color
+   form
+      constraints
+         self.f.orth <-- "yellow"  
+   meaning: PropertyModifier
+    constraints
+       	self.m.value <-- @yellow   
+       	
+
+
+/** Serial Adjective construction, from Base (July 1, ST).
+Used for testing in Specializer: "big red block", etc. */    
+  	
+//Complex Adjective
+general construction ComplexAdjective
+   subcase of Adjective
+   
+//Serial Adjective   
+construction SerialAdjective
+   subcase of ComplexAdjective
+   	constructional 
+   	 constituents
+          	first: Adjective
+	    	second: Adjective
+	form
+       constraints
+       		first.f meets second.f
+   meaning
+   	constraints
+			self.m <--> first.m
+			self.m.modifiedThing <--> second.m.modifiedThing
+
+			
+// ADDED 6/25/14 (ST), Testing complex adjectives like "big red block"
+general construction ScalarAdjective  // e.g. big
+	subcase of  PropertyAdjective
+	meaning: PropertyModifier // Should be ScalarModifier, but changed for now for testing purposes 
+
+// ADDED 6/25/14 (ST), Testing complex adjectives like "big red block"	
+construction Big  //  don't need @big, sizeValue  11/12/12
+  subcase of ScalarAdjective // PropertyAdjective ??? 
+   form 
+      constraints 
+       self.f.orth <-- "big"
+   meaning //: ScalarModifier // inherited ??
+    constraints
+      self.m.value <-- @big // "7"
+      self.m.property <-- @size  
+	  self.m.domain <-- @physicalEntity 
+	  self.m.kind <-- @unmarked  // base case	
+	  
+// ADDED 7/7/14 (ST)
+construction Biggest
+	subcase of ScalarAdjective
+	form
+	   constraints
+	     self.f.orth <-- "biggest"
+	meaning: PropertyModifier//: ScalarModifier // inherited ??
+      constraints
+       self.m.value <-- @big
+       self.m.property <-- @size  
+	   self.m.domain <-- @physicalEntity 
+	   self.m.kind <-- @superlative  // base case	
+	  	  		
+			
+
+// ADDED 6/25/14 (ST), Testing complex adjectives like "big red block"	
+construction Small  //  don't need @big, sizeValue  11/12/12
+  subcase of ScalarAdjective // PropertyAdjective ??? 
+   form 
+      constraints 
+       self.f.orth <-- "small"
+   meaning: PropertyModifier//: ScalarModifier // inherited ??
+    constraints
+      self.m.value <-- @small
+      self.m.property <-- @size  
+	  self.m.domain <-- @physicalEntity 
+	  self.m.kind <-- @unmarked  // base case	
+	
+
+// Written 6/25/14 (ST), for "the big red block"
+// Need to work out a better meaning / synthesis of adjective values
+construction ComplexKernel
+	subcase of Kernel
+	constructional
+    constituents
+      ap: SerialAdjective 
+      n: Nominal
+    constraints
+      self.features <--> n.features
+  form
+    constraints
+      ap.f before n.f
+  meaning: RD
+    constraints
+      self.m <--> n.m
+      self.m <--> ap.m.modifiedThing
+      //ap.m.property <--> n.m.scale  //4/26/13  ***** n.m.scale is implicit, e.g inch
+      //ap.m.domain <--> n.m.ontological-category //constraint
+      // n.m.extensions.property.ontological-category <--> ap.m.value		
+			
+       		
+
+// "North" as adjective
+construction North-Adj
+	subcase of PropertyAdjective
+	form
+	   constraints
+	      self.f.orth <-- "north"
+	meaning
+	   constraints
+	      self.m.value <-- @north
+	      self.m.property <-- @side
+	      //self.m.domain <-- @physicalEntity 
+	      
+// "West" as adjective
+construction West-Adj
+	subcase of PropertyAdjective
+	form
+	   constraints
+	      self.f.orth <-- "west"
+	meaning
+	   constraints
+	      self.m.value <-- @west
+	      self.m.property <-- @side
+	      //self.m.domain <-- @physicalEntity 
+	      
+	      
+// "East" as adjective
+construction East-Adj
+	subcase of PropertyAdjective
+	form
+	   constraints
+	      self.f.orth <-- "east"
+	meaning
+	   constraints
+	      self.m.value <-- @east
+	      self.m.property <-- @side
+	      //self.m.domain <-- @physicalEntity 
+	      
+	      
+	      	      	      
+	      
+// "South" as adjective
+construction South-Adj
+	subcase of PropertyAdjective
+	form
+	   constraints
+	      self.f.orth <-- "south"
+	meaning
+	   constraints
+	      self.m.value <-- @south
+	      self.m.property <-- @side
+	      //self.m.domain <-- @physicalEntity 	      
+	      

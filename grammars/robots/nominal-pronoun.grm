@@ -1,0 +1,78 @@
+/***
+ ***
+ *** Pronouns
+ ***
+ ***/
+
+general construction Pronoun
+   subcase of NP, Word
+   meaning
+    constraints
+      self.m.givenness <-- @inFocus 
+      self.m.bounding <-- @determinate
+      
+general construction PossessivePronoun  // recheck this 12/30/12
+   subcase of Word, Specifier
+   meaning  //RD
+     evokes Possession as possession
+     evokes RD as possessor
+     constraints
+       self.m <--> possession.possessed
+       possessor <--> possession.possessor
+       
+
+construction His
+   subcase of PossessivePronoun
+   form
+      constraints
+         self.f.orth <-- "his"
+   meaning
+      constraints
+         possessor.ontological-category <-- @person
+         possessor.gender <-- @male
+
+general construction  Possessive-NP
+	subcase of NP
+
+
+construction He
+   subcase of Pronoun, Singular, ThirdPerson
+   constructional
+     constraints
+       self.features.case <-- "nom"
+   form
+      constraints
+         self.f.orth <-- "he"
+   meaning
+    constraints
+      self.m.ontological-category <-- @person  
+      self.m.number <-- @singular
+      self.m.gender <-- @male  
+
+construction You
+   subcase of Pronoun, Singular, SecondPerson
+   constructional
+     constraints
+       self.features.case <-- "nom"
+   form
+      constraints
+         self.f.orth <-- "you"
+   meaning
+    constraints
+      self.m.ontological-category <-- @person  
+      self.m.number <-- @singular 
+            
+construction It
+   subcase of Pronoun, Singular, ThirdPerson
+   constructional
+     constraints
+       self.features.case <-- "nom"
+   form
+      constraints
+         self.f.orth <-- "it"
+   meaning
+    constraints
+      self.m.number <-- @singular
+	  self.m.ontological-category <-- @inanimate
+	  self.m.gender <-- @neuter
+	  self.m.referent <-- @antecedent  // added 7/23/14 (ST)

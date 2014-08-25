@@ -1,0 +1,378 @@
+ 
+ 
+general construction Verb
+   subcase of HasVerbFeatures
+   meaning: Process
+
+general construction ComplexVerb
+   subcase of Verb
+   
+general construction VerbChunk  
+	subcase of  RootType, ComplexVerb 
+
+general construction LexicalVerb
+	subcase of VerbChunk, Word
+	meaning
+		evokes ProcessFeatures as pf
+   	constraints
+   		pf <--> self.m.p-features
+
+
+general construction Move  
+   	subcase of LexicalVerb
+	meaning: MotionPath 
+      	constraints
+         	self.m.actionary <-- @move      	
+		
+construction MoveBase 
+   	subcase of Move, BaseForm
+   	form
+      	constraints
+         	self.f.orth <-- "move"          
+
+construction MovePast
+   subcase of Move, PastTense 
+   form
+      constraints
+         self.f.orth <-- "moved"
+
+construction MovePastParticiple
+   subcase of Move, PastParticiple
+   form
+      constraints
+         self.f.orth <-- "moved"
+
+construction MovePresentParticiple
+   subcase of Move, PresentParticiple
+   form
+      constraints
+         self.f.orth <-- "moving"
+          
+general construction SeeT // 8/21/13 Transitive
+   subcase of LexicalVerb
+   meaning: Perception
+      constraints 
+         self.m.actionary <-- @see
+		 self.argform <-- Transitive
+ 		 self.verbkind <-- Perceptual  // 10/3/13
+ 		 
+	
+construction SeeBaseT
+   subcase of SeeT, BaseForm
+   form
+      constraints
+         self.f.orth <-- "see"
+
+construction SeePastT
+   subcase of SeeT, PastTense
+   form
+      constraints
+         self.f.orth <-- "saw"
+
+// push
+
+general construction Push   
+   	subcase of LexicalVerb
+     meaning: CauseEffect
+     evokes ForceApplication as fa
+     evokes MotionPath as mp
+       constraints
+         	self.m.actionary <-- @push_move
+         	self.m.protagonist.ontological-category <-- @agent  // 1/28/13, motor control constraint
+         	self.fa <--> self.m.causalProcess
+         	self.mp <--> self.m.affectedProcess
+         	self.fa.actedUpon <--> self.m.affectedEntity
+ 				
+ construction PushBase   
+   	subcase of Push, BaseForm
+   	form
+      	constraints
+         	self.f.orth <-- "push"
+     
+construction PushPast   
+   	subcase of Push, PastTense
+   	form
+      	constraints
+         	self.f.orth <-- "pushed"
+ 
+ construction PushParticiple   
+   	subcase of Push, PastParticiple
+   	form
+      	constraints
+         	self.f.orth <-- "pushed"
+         	        	
+construction PushPresentParticiple   
+   	subcase of Push, PresentParticiple
+   	form
+      	constraints
+         	self.f.orth <-- "pushing"     	
+
+// Aspectualizers
+
+general construction StageVerb
+   subcase of LexicalVerb
+   constructional
+     constraints
+       self.verbkind <-- Stage
+       self.expectedVerbForm <-- PresentParticipleOrInfinitive
+
+general construction Start
+   subcase of StageVerb
+   meaning 
+      constraints
+		self.m.actionary <-- @start
+		       
+construction StartBase
+   subcase of Start,BaseForm
+   form
+      constraints
+         self.f.orth <-- "start" 
+		
+construction StartPast
+   subcase of Start, PastTense
+   form
+      constraints
+         self.f.orth <-- "started"
+         
+construction StartPastParticple
+   subcase of Start, PastParticiple
+   form
+      constraints
+         self.f.orth <-- "started"
+
+construction StartPresentParticiple
+   subcase of Start, PresentParticiple
+   form
+      constraints
+         self.f.orth <-- "starting"
+
+general construction Stop  // stop walking ...
+   subcase of StageVerb  
+   constructional
+     constraints
+      self.expectedVerbForm <-- PresentParticiple
+    meaning
+   	  constraints   
+     	self.m.actionary <-- @stop
+     		
+construction StopBase  // stop walking ...
+   subcase of Stop, BaseForm
+   form
+      	constraints
+      		self.f.orth <-- "stop"
+
+  construction StopPast
+   subcase of Stop, PastTense
+   form
+      constraints
+         self.f.orth <-- "stopped"
+
+construction StopPresentParticiple
+   subcase of Stop, PresentParticiple
+   form
+      constraints
+         self.f.orth <-- "stopping"
+  
+construction ContinueBase
+   subcase of StageVerb, BaseForm
+   form
+   constraints
+      self.f.orth <-- "continue"
+   meaning 
+      constraints
+		self.m.actionary <-- @continue
+		
+construction ContinuePast
+  subcase of StageVerb, PastTense
+   form
+      constraints
+         self.f.orth <-- "continued"
+  
+construction ContinuePresentParticiple
+   subcase of StageVerb, PresentParticiple
+   form
+      constraints
+         self.f.orth <-- "continuing"
+         
+// "Dash", used for "fast motion manner"
+general construction Dash
+	subcase of LexicalVerb
+	meaning: MotionPath
+	  constraints
+	    self.m.actionary <-- @dash
+	    self.m.speed <-- ".8"
+
+construction DashBase
+	subcase of Dash, BaseForm
+	form
+	  constraints
+	    self.f.orth <-- "dash"
+
+// "Crawl", used for "slow motion manner"	    
+general construction Crawl
+	subcase of LexicalVerb
+	meaning: MotionPath
+	  constraints
+	    self.m.actionary <-- @crawl
+	    self.m.speed <-- ".2"
+
+construction CrawlBase
+	subcase of Crawl, BaseForm
+	form
+	  constraints
+	    self.f.orth <-- "crawl"	    
+
+/*        
+general construction Enter   
+   subcase of LexicalVerb
+   meaning: ChangeLocation // mover changes location wrt a landmark 
+      //evokes BoundedObject as bo   
+     constraints
+         //self.m.landmark <--> bo.boundedObject
+         //self.m.goal <--> bo.interior
+         self.m.landmark.ontological-category <-- @container
+         self.m.actionary <-- @enter
+
+construction EnterPast
+   subcase of Enter, PastTense
+   form
+      constraints
+         self.f.orth <-- "entered"
+*/         
+      
+      
+	
+construction Define
+	subcase of LexicalVerb
+	form
+	   constraints 
+	     self.f.orth <-- "define"
+
+	
+schema Definition
+	subcase of EventDescriptor
+	roles
+	  sign
+	  signified
+
+	  
+
+construction As-Define
+	subcase of Preposition
+	form
+	   constraints
+	      self.f.orth <-- "as" 
+	      
+construction Visit
+	subcase of LexicalVerb
+	form
+	   constraints
+	      self.f.orth <-- "visit"
+	meaning
+	   constraints
+	      self.m.actionary <-- @visit
+	      //self.m <-->
+	      
+construction Tour
+	subcase of LexicalVerb
+	form
+	   constraints
+	      self.f.orth <-- "tour"
+	meaning
+	   constraints
+	      self.m.actionary <-- @tour
+	      //self.m <-->	  
+	      
+construction Join
+	subcase of LexicalVerb
+	form
+	   constraints
+	      self.f.orth <-- "join"
+	meaning
+	   constraints
+	      self.m.actionary <-- @join
+	      //self.m <-->	      
+
+construction Task
+	subcase of LexicalVerb
+	form
+	   constraints
+	      self.f.orth <-- "task"
+	meaning
+	   constraints
+	      self.m.actionary <-- @task
+	      //self.m <-->	  
+	       
+construction Define-As
+	subcase of S
+	constructional
+	   constituents
+	      def: Define 
+	      w: Word
+	      optional variable1: Variable
+		  optional list: ConjNP
+	      a: As-Define
+	      means: Imperative
+	form
+	   constraints
+	      def.f before w.f
+	      w.f before a.f
+	      w.f before variable1.f
+	      variable1.f before list.f
+		  list.f before a.f
+	      a.f before means.f
+	meaning: Definition
+	   constraints
+	      self.m.sign <--> w.m  // more accurately, the word's orthographic form
+	      self.m.signified <--> means.m
+	      //self.m <--> self.m.signified
+
+
+
+construction Define-Utterance
+	subcase of Utterance
+	constructional
+	   constituents
+	      core: Define-As
+	meaning
+	   constraints
+	      self.m.mood <-- "Definition"
+
+
+
+general construction ComplexNP 
+   subcase of NP
+
+construction ConjNP  // self.m.number <- @plural
+	subcase of ComplexNP
+	constructional
+	    constituents   
+		 	connective: Conjunction   // and or etc.
+	        first: NP
+		    second: NP
+		constraints
+		   self.features.number <-- "plural"
+   	form
+		constraints		
+	      	first.f meets connective.f
+	      	connective.f meets second.f
+	meaning: ConjRD
+		constraints		
+			first.m <-> m.rd1
+        	second.m <-> m.rd2
+        	self.m.number <-- @plural
+        	self.m.bounding <--> first.m.bounding
+       		self.m.givenness <--> first.m.givenness
+       		self.m.ontological-category <--> first.m.ontological-category
+       		connective.m <-> m.connective
+	
+/**	
+construction VariableNP
+	subcase of NP
+	constructional
+	   constituents
+	     v1: Variable
+    meaning
+      constraints
+         self.m <--> v1.m 
+  

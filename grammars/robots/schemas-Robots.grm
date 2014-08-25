@@ -1,0 +1,23 @@
+
+// 4/1/14
+
+schema HeadingSchema 
+   roles
+ 	  tag: @heading
+      landmark: RD  
+      
+
+      
+schema SerialProcess  // in process.grm ?? use kind role of Process?
+   subcase of ComplexProcess
+   roles
+   	  connective
+      //actionary: @complexxnet  //Ontology, ?add @serialxnet OR @serialaction
+      process1: Process // inherited
+      process2: Process // inherited
+      protagonist2 // inherited
+   constraints
+      protagonist <--> process1.protagonist
+      protagonist2 <--> process2.protagonist
+      protagonist2 <-->  protagonist 
+      complexKind <-- @serial

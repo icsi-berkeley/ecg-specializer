@@ -1,0 +1,151 @@
+
+// Nouns for the robots grammar
+// Plural Nouns of distance
+
+construction Inches
+   subcase of PluralNoun
+   form
+      constraints
+         self.f.orth <-- "inches"
+      meaning// RD, is this right ????? 11/24/12
+    constraints
+      self.m.ontological-category <--  @inch
+
+construction Squares
+   subcase of PluralNoun
+   form
+      constraints
+         self.f.orth <-- "squares"
+      meaning
+    constraints
+      self.m.ontological-category <--  @square
+  
+  // some special stuff for early robot domain     added 3/28/14
+ 
+ schema Location2D  // probably note with RD def.  7/18/14
+	subcase of RD		 
+	roles
+		xCoord: @number
+		yCoord: @number
+	constraints
+		ontological-category <-- @location
+ 		number <-- @singular
+
+
+construction LOCATION  // maybe a convention for key words
+	subcase of Word, HasAgreementFeatures
+	form
+    	constraints
+			self.f.orth <-- "location"
+
+
+//construction Variable
+general construction Variable
+	subcase of ProperNounNP
+	meaning
+	  constraints
+	    self.m.referent <-- @variable
+	    
+construction ql1 // variable 7/18/14
+	subcase of Variable // ProperNounNP
+	form
+    	constraints
+			self.f.orth <-- "QL1"			
+	meaning
+	constraints
+      self.m.ontological-category <--  @location
+      self.m.referent <--  @variable
+      			
+construction ql2 // variable 7/18/14
+	subcase of Variable
+	form
+    	constraints
+			self.f.orth <-- "QL2"			
+	meaning
+	constraints
+      self.m.ontological-category <--  @location
+      self.m.referent <--  @variable
+      
+construction ql3 // variable 7/18/14
+	subcase of Variable
+	form
+    	constraints
+			self.f.orth <-- "QL3"			
+	meaning
+	constraints
+      self.m.ontological-category <--  @location
+      self.m.referent <--  @variable      
+      
+construction ql4 // variable 7/18/14
+	subcase of Variable
+	form
+    	constraints
+			self.f.orth <-- "QL4"			
+	meaning
+	constraints
+      self.m.ontological-category <--  @location
+      self.m.referent <--  @variable      
+
+construction qo1
+	subcase of Variable
+	form
+	   constraints
+	      self.f.orth <-- "QO1"
+	meaning
+	   constraints
+	      self.m.ontological-category <-- @physicalEntity
+	      self.m.referent <-- @variable
+	      
+construction qo2
+	subcase of Variable
+	form
+	   constraints
+	      self.f.orth <-- "QO2"
+	meaning
+	   constraints
+	      self.m.ontological-category <-- @physicalEntity
+	      self.m.referent <-- @variable	
+		
+construction LocationNP
+	subcase of NP, Kernel
+  	constructional
+    	constituents
+		  	tag: LOCATION
+			x: Number
+			optional comma: Comma
+			y: Number
+	form
+    	constraints
+      		tag.f meets x.f
+			x.f meets comma.f
+			comma.f meets y.f
+  meaning: Location2D
+    	constraints
+      		self.m.xCoord <--> x.m.value
+			self.m.yCoord <--> y.m.value
+			//self.m.ontological-category <-- @entity
+			
+general construction UnitsNP // stands alone, no Specifier  11/24/12
+  subcase of NP
+  constructional
+    	constituents
+	  		num: Quantifier	//
+      		k: Noun 
+    	constraints
+      		self.features <--> k.features
+  form
+    	constraints
+      		num.f meets k.f
+  meaning: QuantifiedRD
+    constraints
+    	self.m <--> k.m
+    	//k.m.ontological-category <-- @spatial-units   generalized
+		self.m.units <-> k.m.ontological-category
+		self.m.amount.value <--> num.m
+		
+ construction SpatialQuantityNP // stands alone, no Specifier
+  subcase of UnitsNP
+  meaning: QuantifiedSpatialRD
+    constraints
+    	k.m.ontological-category <-- @spatial-units // only difference *** generalize 11/24/12
+			
