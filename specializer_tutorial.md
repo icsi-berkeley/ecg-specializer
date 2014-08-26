@@ -1,4 +1,4 @@
-**Running the Analyzer from a UNIX Environment**
+# **Running the Analyzer from a UNIX Environment**
 
 Sean Trott (Draft 2)
 
