@@ -247,6 +247,7 @@ Once the mood of the sentence has been established, the Specializer must determi
 
 Different types of processes make use of different meaning Schemas, which have different roles. The sentence "Robot1, move to the big blue box!" uses the MotionPath schema, which itself contains the Source-Path-Goal schema. There are several very important role mappings from the input sentence. The sentence elements are listed below with the corresponding SemSpec mapping, as well as the parent Schema.
 
+``` 
 "Robot1": mover / protagonist (MotionPath)
 
 "Robot1": trajector (Source-Path-Goal)
@@ -254,7 +255,7 @@ Different types of processes make use of different meaning Schemas, which have d
 "Move": actionary (MotionPath)
 
 "the big blue box": goal / landmark (Source-Path-Goal)
-
+``` 
 The SemSpec makes explicit a couple of necessary details to the Specializer, which help the Specializer determine how to handle processing this input. First of all, the "mood" is Imperative, so the Template should be an executable. Second, the process is MotionPath, which is a "simple" process.
 
 As mentioned in Step 3 above, the process will be dispatched to the relevant function. In this case, the function is called "params\_for\_motionPath". In order to function properly, the Solver needs to know information about the following roles:
@@ -317,7 +318,7 @@ Using this information, the Solver can identify the box that is "near" the red b
 
 The Specializer also performs basic referent resolution. Co-reference is when two expressions in a text refer to the same thing, such as:
 
-" **Sally** and **her** [Sally's] friend went for a walk."
+>> “**Sally** and **her** [Sally's] friend went for a walk."
 
 Co-reference resolution involves the resolving of a pronoun or otherwise anaphoric semantic element with its predecessor. It is a difficult problem in computational linguistics because of the high degree of complexity in language. However, in certain cases, there are systems of rules that seem to work. Additionally, we can use ontological classification and the semantic parse to guide the resolution, in addition to syntactic placement (Oliva, Feldman, Gilardi, & Dodge, 2013).
 
