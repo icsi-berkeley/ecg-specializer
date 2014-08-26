@@ -318,7 +318,7 @@ Using this information, the Solver can identify the box that is "near" the red b
 
 The Specializer also performs basic referent resolution. Co-reference is when two expressions in a text refer to the same thing, such as:
 
->> “**Sally** and **her** [Sally's] friend went for a walk."
+> “**Sally** and **her** [Sally's] friend went for a walk."
 
 Co-reference resolution involves the resolving of a pronoun or otherwise anaphoric semantic element with its predecessor. It is a difficult problem in computational linguistics because of the high degree of complexity in language. However, in certain cases, there are systems of rules that seem to work. Additionally, we can use ontological classification and the semantic parse to guide the resolution, in addition to syntactic placement (Oliva, Feldman, Gilardi, & Dodge, 2013).
 
@@ -340,7 +340,7 @@ The current system for referent resolution is relatively simple.
 
 **Storage of entire Object-Descriptor:** Third, a pronoun often refers to an entire Noun-Phrase, which can be considerably more complex than "Box1" or "the green box". A Noun-Phrase could be: "the box behind the green box near the small red box". This is why the Stack contains the entire Object Descriptor or Location Descriptor. The NP could be used in the following command:
 
->>> "Robot1, if the box behind the green box near the small red box is blue, push **it** !"
+> "Robot1, if the box behind the green box near the small red box is blue, push **it** !"
 
 The Specializer realizes that _it_ must be resolved, so it calls the Reference Resolution function. This function "pops" off the item at the top of the Stack, which happens to be the following Object Descriptor:
 ```
