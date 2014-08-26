@@ -59,6 +59,9 @@ $ set JYTHONPATH=lib\compling.core.jar;src\main
 
 $ jython -m analyzer grammars\robots.prefs
 ```
+
+**Viewing and Editing the Grammar:**If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
+
 **Specializer**
 
 **About the Specializer**
