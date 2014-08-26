@@ -1,4 +1,4 @@
-# **Running the Analyzer from a UNIX Environment**
+## **Running the Analyzer from a UNIX Environment**
 
 Sean Trott (Draft 2)
 
@@ -21,7 +21,7 @@ To run the Analyzer and Specializer properly, you will need access to the "compl
 - You will need to be running at least Python3.3: <https://www.python.org/download/releases/3.3.0/>
 - You will need to have JYTHON installed: <http://www.jython.org/downloads.html>
 
-**Setting Up the Analyzer**
+#### **Setting Up the Analyzer**
 
 Before you can run the Specializer, you need to set up the Analyzer. Open up your favorite command line shell (examples assume you're running a Bash shell), and navigate to your newly downloaded "compling" directory. Once there, enter the following command:
 
@@ -60,11 +60,11 @@ $ set JYTHONPATH=lib\compling.core.jar;src\main
 $ jython -m analyzer grammars\robots.prefs
 ```
 
-**Viewing and Editing the Grammar:**If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
+#### **Viewing and Editing the Grammar:**If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
 
-**Specializer**
+## **Specializer**
 
-**About the Specializer**
+#### **About the Specializer**
 
 When a line of text is entered into the command line for the ECG Analyzer, the Analyzer yields a parse (if possible), which takes the form of a Semantic Specification (SemSpec). The SemSpec is a graph-type data structure, which contains both the syntactic and semantic elements of the parse, embedded within higher-level grammatical Constructions and Schemas. You should have already tried examples with the Workbench and become familiar with the graphical presentation of some simple robot examples. The SemSpec contains all the necessary linguistic information about the sentence, but its structure is highly complex – this is where the Specializer comes in.
 
