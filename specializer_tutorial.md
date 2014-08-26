@@ -72,7 +72,7 @@ The role of the Specializer is to extract the important information from this Se
 
 For this example, the Specializer is used in conjunction with a Robotics Problem Solver and a simple robot simulation in an environment that contains four boxes of different sizes and colors, as well as a robotic vehicle, which can obey commands and answer questions.
 
-**Using the Specializer**
+#### **Using the Specializer**
 
 Once the Analyzer is running in Terminal, open a second Terminal window. Make sure you are in the same _compling_ directory. If you're running a Mac, enter the following command:
 ```
@@ -188,7 +188,7 @@ The "Struct" object printed below the input sentence is the final N-Tuple, which
 
 - where is it?
 
-**How the Specializer Works**
+#### **How the Specializer Works**
 
 The above tutorial on using the Specializer should be sufficient to become better acquainted with how the grammar and SemSpec is converted into an easily interpretable message. However, if you wish to learn more about how the Specializer actually uses the task specification and the SemSpec to produce an N-Tuple, continue reading below:
 
