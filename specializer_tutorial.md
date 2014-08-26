@@ -43,7 +43,7 @@ User:compling$ export JYTHONPATH=lib/compling.core.jar:src/main
 ```
 This connects the Java ECG Analyzer, which is located in the /lib folder, to the /src/main folder, which contains all of the Python files, such as specializer.py and analyzer.py. Once this is done, enter the following JYTHON command:
 ```
-User:compling$ jython –m analyzer _grammars/_robots.prefs1
+User:compling$ jython –m analyzer _grammars/_robots.prefs [^1]
 ```
 This connects the grammar to a local host, which can be accessed from elsewhere. For example, the Specializer module sets up a proxy Analyzer class connecting to that host, and calls the "parse" function from there.
 
@@ -73,7 +73,7 @@ For this example, the Specializer is used in conjunction with a Robotics Problem
 
 Once the Analyzer is running in Terminal, open a second Terminal window. Make sure you are in the same _compling_ directory. If you're running a Mac, enter the following command:
 ```
-User:compling$ python3 src/main/specializer.py2
+User:compling$ python3 src/main/specializer.py [^2]
 ```
 If you're running Windows, enter this command:
 ```
@@ -277,7 +277,7 @@ As mentioned in Step 3 above, the process will be dispatched to the relevant fun
 ```
 Sample ontology lattice excerpt (Oliva, Feldman, Gilardi, & Dodge, 2013)
 
-**Object-Descriptors:** In the sentence given previously ("Robot1, move to the big blue box"), three of these roles are referenced. The mover is "Robot1", the actionary is "move", and the goal is "the big blue box". In this case, the goal is a description of an object, not a reference to a particular instance (such as Box1). In order to include all of the relevant information about the goal, the Specializer represents the goal as a general Object Descriptor, which is a Python dictionary embedded within the larger template. The Specializer performs a depth-first-search3 on the SemSpec and collects relevant information about the object, adding it to the object descriptor. Ultimately, the Object Descriptor looks like this:
+**Object-Descriptors:** In the sentence given previously ("Robot1, move to the big blue box"), three of these roles are referenced. The mover is "Robot1", the actionary is "move", and the goal is "the big blue box". In this case, the goal is a description of an object, not a reference to a particular instance (such as Box1). In order to include all of the relevant information about the goal, the Specializer represents the goal as a general Object Descriptor, which is a Python dictionary embedded within the larger template. The Specializer performs a depth-first-search [^3] on the SemSpec and collects relevant information about the object, adding it to the object descriptor. Ultimately, the Object Descriptor looks like this:
 
 ```
 Object-Descriptor: {type: box,
@@ -392,17 +392,8 @@ Gilardi, Luca; Feldman, Jerome. 2008. _A Brief Introduction to ECG Workbench and
 
 Oliva, Jesus; Feldman, Jerome; Gilardi, Luca; Dodge, Ellen. 2013. _Ontology Driven Contextual Best Fit in Embodied Construction Grammar. _
 
-1
+[^1]: Note that the italicized file-path above (compling/grammars) depends on where you've installed the "robots" grammar.
 
-# 
- Note that the italicized file-path above (compling/grammars) depends on where you've installed the "robots" grammar.
+[^2]: If you are running with the MORSE simulator, the command will instead be: python3 src/main/specializer.py "-s morse". For the purposes of this tutorial, we will focus only on the text-based Specializer and Problem Solver.
 
-2
-
-# 
- If you are running with the MORSE simulator, the command will instead be: python3 src/main/specializer.py "-s morse". For the purposes of this tutorial, we will focus only on the text-based Specializer and Problem Solver.
-
-3
-
-# 
- A type of algorithm used to traverse tree / graph structures, in which the pointer begins at an "entry" node and explores as far as possible along each branch before backtracking. This method was chosen rather than a breadth-first-search because the relevant information is generally contained very far down along a branch.
+[^3]: A type of algorithm used to traverse tree / graph structures, in which the pointer begins at an "entry" node and explores as far as possible along each branch before backtracking. This method was chosen rather than a breadth-first-search because the relevant information is generally contained very far down along a branch.
