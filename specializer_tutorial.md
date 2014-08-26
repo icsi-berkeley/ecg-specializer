@@ -395,6 +395,8 @@ Gilardi, Luca; Feldman, Jerome. 2008. _A Brief Introduction to ECG Workbench and
 
 Oliva, Jesus; Feldman, Jerome; Gilardi, Luca; Dodge, Ellen. 2013. _Ontology Driven Contextual Best Fit in Embodied Construction Grammar. _
 
+**Endnotes:**
+
 [^1]: Note that the italicized file-path above (compling/grammars) depends on where you've installed the "robots" grammar.
 
 [^2]: If you are running with the MORSE simulator, the command will instead be: python3 src/main/specializer.py "-s morse". For the purposes of this tutorial, we will focus only on the text-based Specializer and Problem Solver.
