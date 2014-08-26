@@ -370,7 +370,7 @@ After this Object Descriptor is inspected for compatibility, it is simply passed
 ```
 If the command is something like "push it", _it_ must refer to something that can be moved. Thus, the Specializer checks the ontological category of the "popped" referent, and ensures that it is compatible with the _actionary_ (such as "force application" or "move").
 ```
-self.analyzer.issubtype('ONTOLOGY', popped['objectDescriptor']['type'],                  'moveable')
+self.analyzer.issubtype('ONTOLOGY', popped['objectDescriptor']['type'], 'moveable')
 ```
 The above code checks if the "type" of the object referenced is a _child_ of "moveable" in the ontology – in other words, whether the object can be moved.
 
@@ -378,7 +378,7 @@ Another example of checking compatibility is with predication or questions, such
 
 However, as before, the grammar does not perform co-reference resolution, so it cannot check if _it _in "is it red?" is a Physical Entity; _it_ could refer to any type of antecedent. Thus, the Reference Resolution function must also take in predication as an argument. Ultimately, it tests using the same ontological lattice function:
 ```
-self.analyzer.issubtype('ONTOLOGY', popped['objectDescriptor']['type'],                          'physicalEntity')
+self.analyzer.issubtype('ONTOLOGY', popped['objectDescriptor']['type'], 'physicalEntity')
 ```
 In summation, the co-reference resolution currently used in the Specializer operates under four assumptions:
 
