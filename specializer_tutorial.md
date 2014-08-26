@@ -362,9 +362,9 @@ The Specializer realizes that _it_ must be resolved, so it calls the Reference R
 
 After this Object Descriptor is inspected for compatibility, it is simply passed into the N-Tuple in the place of the pronoun, so the Solver gets a message identical to the message it would get from the following sentence:
 
-```
-"Robot1, if the box behind the green box near the small red box is blue, push the box behind the green box near the small red box!"
-```
+
+> “Robot1, if the box behind the green box near the small red box is blue, push the box behind the green box near the small red box!"
+
 **Ontological Compatibility:** Fourth, the Specializer checks the ontological category of the Object Descriptor or Location Descriptor, and evaluates whether it is compatible with the usage of the pronoun. This relies on the _Ontological Lattice_, a complex hierarchy of category types. In the grammar, these ontological categories constrain the output of the SemSpec. Objects in the world are mapped to a particular ontological category, such as "box":
 ```
 (type box sub container moveable)
