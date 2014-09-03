@@ -148,7 +148,7 @@ The "Struct" object printed below the input sentence is the final N-Tuple, which
 
 - Robot1, push the blue box!
 
-- Robot1, move to the North side of Box1!
+- Robot1, move to the north side of Box1!
 
 **Serial Processes:**
 
