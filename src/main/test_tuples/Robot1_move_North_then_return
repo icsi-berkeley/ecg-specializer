@@ -1,0 +1,56 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "direction": null,
+          "speed": 0.5,
+          "control_state": "ongoing",
+          "goal": null,
+          "kind": "execute",
+          "action": "move",
+          "distance": {
+            "__JSON_Struct__": {
+              "units": "square",
+              "value": 8
+            }
+          },
+          "protagonist": {
+            "objectDescriptor": {
+              "type": "robot",
+              "referent": "robot1_instance"
+            }
+          },
+          "heading": "north"
+        }
+      },
+      {
+        "__JSON_Struct__": {
+          "direction": null,
+          "speed": 0.5,
+          "control_state": "ongoing",
+          "goal": {
+            "location": "home"
+          },
+          "kind": "execute",
+          "action": "move",
+          "distance": {
+            "__JSON_Struct__": {
+              "units": "square",
+              "value": 8
+            }
+          },
+          "protagonist": {
+            "objectDescriptor": {
+              "type": "robot",
+              "referent": "robot1_instance"
+            }
+          },
+          "heading": null
+        }
+      }
+    ],
+    "return_type": "error_descriptor",
+    "predicate_type": "command"
+  }
+}

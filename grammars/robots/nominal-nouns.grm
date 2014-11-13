@@ -22,7 +22,9 @@ construction Block
     constraints
       self.m.ontological-category <--  @block
       self.m.scale <-- @size
-     
+      
+
+          
  construction Box
    subcase of SingularNoun
    form
@@ -56,6 +58,19 @@ construction Room
       self.m.ontological-category <--  @room
       self.m.scale <-- @size
 
+
+// "Bottle"
+construction Bottle
+	subcase of SingularNoun
+	form
+	  constraints
+	     self.f.orth <-- "bottle"
+	meaning
+	   constraints
+	     self.m.ontological-category <-- @bottle
+
+
+
 //
 // Plural Count Nouns
 //
@@ -85,6 +100,18 @@ construction Blocks
 
 general construction ProperNounNP
     subcase of NP, Word
+    
+construction John
+    subcase of ProperNounNP, Singular, ThirdPerson
+    form
+        constraints
+            self.f.orth <-- "John"
+    meaning
+        constraints
+        	self.m.referent <-- @john-instance
+            self.m.ontological-category <-- @person
+      		self.m.number <-- @singular
+		self.m.gender <-- @male    
 
 construction ROBOT1
     subcase of ProperNounNP, Singular, ThirdPerson
@@ -211,6 +238,18 @@ construction Box6
       self.m.number <-- @singular
       self.m.extensions <--> cont   
  
+
+construction Bottle1
+	subcase of ProperNounNP, Singular, ThirdPerson
+	form
+	   constraints
+	     self.f.orth <-- "Bottle1"
+	meaning
+	   constraints
+	      self.m.referent <-- @bottle1
+	      self.m.ontological-category <-- @bottle
+	      self.m.number <-- @singular
+
 
 general construction Directional  //also DirectionalPP, etc.
 

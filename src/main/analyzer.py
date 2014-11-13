@@ -36,16 +36,18 @@ except ImportError:
     from compling.parser.ecgparser import ECGAnalyzer
     from compling.grammar.unificationgrammar.FeatureStructureUtilities import getDfs  # @UnusedImport
 
+
 class Analyzer(object):
     def __init__(self, prefs):
         self.analyzer = ECGAnalyzer(prefs)
         self.grammar = self.analyzer.grammar
+        self.server = None
 
     def get_parses(self, sentence):
         try:
             return getParses(sentence, self.analyzer)
         except ParserException:
-            raise Fault(-1, u'The sentence "{}" has no valid parses.' % sentence)
+            raise Fault(-1, u'The sentence "%s" has no valid parses.' % sentence)
         
     def parse(self, sentence):
         def root(parse):
@@ -62,6 +64,12 @@ class Analyzer(object):
         
         return [as_sequence(p) for p in self.get_parses(sentence)]
 
+
+    def reload(self, prefs):
+        """ Reloads grammar according to prefs file. """
+        self.analyzer = ECGAnalyzer(prefs)
+        self.grammar = self.analyzer.grammar
+
     def issubtype(self, typesystem, child, parent):
         """Is <child> a child of <parent>?
         """
@@ -70,6 +78,10 @@ class Analyzer(object):
                    ONTOLOGY=self.grammar.ontologyTypeSystem)
         ts = _ts[typesystem]
         return ts.subtype(ts.getInternedString(child), ts.getInternedString(parent))
+
+    def close(self):
+        self.server.shutdown()
+
 
 def slot_index(slot):
     return slot.slotIndex        
@@ -121,18 +133,21 @@ def dfs(name, slot, parent, seen):
             else:
                 yield slotIndex, n, s.slotIndex
     yield parent.slotIndex if parent else -1, name, slot.slotIndex
-        
+   
 def server(obj, host='localhost', port=8090):
     server = SimpleXMLRPCServer((host, port), allow_none=True, encoding='utf-8')
     server.register_instance(obj)
     display('server ready (listening to http://%s:%d/).', host, port)
     server.serve_forever()
+    return server  # Added
 
 def main(args):
     display(interpreter())
     display('Starting up Analyzer ... ', term='')
     analyzer = Analyzer(args[1])
-    server(analyzer)
+    serve = server(analyzer)
+    analyzer.server = serve
+    print(analyzer.server)
 
 def test_remote(sentence='Robot1, move to location 1 2!'):
     from feature import as_featurestruct
@@ -156,6 +171,7 @@ def test_local(sentence='Robot1, move to location 1 2!'):
 def usage():
     display('Usage: analyzer.py <preference file>')
     sys.exit(-1)
+    
 
 if __name__ == '__main__':
     if '-t' in sys.argv:

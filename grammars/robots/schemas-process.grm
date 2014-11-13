@@ -93,6 +93,16 @@ schema ForceApplication
       //other   <-->   ft.recipient // 4/30/13 ********    
       instrument <--> effector
       effort <-->  ft.amount    
+      actionary <-- @forceapplication
+
+
+
+// Added from Base on 10/8/14 (ST), for: "John, grab the bottle!"
+schema EstablishHold  //"grab", "grasp"
+  subcase of ForceApplication
+     roles
+       routine: @establishhold
+       
 
 schema ComplexProcess  // later make sub of CoProcess
    subcase of Process
@@ -112,18 +122,20 @@ schema ComplexProcess  // later make sub of CoProcess
 // schema here is defined as a direct subcase of ComplexProcess.
 
 
-schema CauseEffect
+schema CauseEffect   // Direct Physical Causation
    subcase of ComplexProcess 
    roles
       causalAgent: RD 
       affectedEntity: RD
-      causalProcess
+      causalProcess: ForceApplication
       affectedProcess
    constraints
       causalAgent <--> protagonist // binding to inherited role
       affectedEntity <--> protagonist2 // binding to inherited role
       causalProcess <--> process1 // binding to inherited role
       affectedProcess <--> process2 // binding to inherited role
+      causalProcess.actedUpon <--> protagonist2
+      causalProcess.actionary <-- @forceapplication
       complexKind <-- @causal
  
 

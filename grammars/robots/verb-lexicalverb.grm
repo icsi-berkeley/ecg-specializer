@@ -107,8 +107,35 @@ construction PushPresentParticiple
       	constraints
          	self.f.orth <-- "pushing"     	
 
-// Aspectualizers
 
+// "grab": testing, added 10/8/14 (ST)
+general construction Grab
+	subcase of LexicalVerb
+	meaning: CauseEffect   // ? or just EstablishHold?
+	  evokes EstablishHold as eh
+	  evokes MotionPath as mp
+	  constraints
+	     self.m.protagonist.ontological-category <-- @agent
+	     self.eh <--> self.m.causalProcess
+	     // what is "affectedProcess" here?
+	     self.eh.actedUpon <--> self.m.affectedEntity
+	     self.m.actionary <-- @establishhold
+	     self.mp <--> self.m.affectedProcess  // Not correct, but stand-in for now
+	     self.mp.actionary <-- @move
+	     
+
+construction GrabBase
+	subcase of Grab, BaseForm
+	form
+	   constraints
+	      self.f.orth <-- "grab"
+	    
+	
+
+
+
+// Aspectualizers
+/* Commented out for efficiency, 10/8/14 (ST) --> until we start using X-Nets again
 general construction StageVerb
    subcase of LexicalVerb
    constructional
@@ -193,6 +220,10 @@ construction ContinuePresentParticiple
    form
       constraints
          self.f.orth <-- "continuing"
+
+
+
+*/
          
 // "Dash", used for "fast motion manner"
 general construction Dash
@@ -241,6 +272,9 @@ construction EnterPast
 */         
       
       
+
+
+// Define constructions listed below. used for "define visit QL1 as move to QL1 then return".
 	
 construction Define
 	subcase of LexicalVerb
@@ -262,6 +296,7 @@ construction As-Define
 	form
 	   constraints
 	      self.f.orth <-- "as" 
+	      
 	      
 construction Visit
 	subcase of LexicalVerb

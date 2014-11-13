@@ -1,0 +1,22 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "query",
+          "specificWh": "where",
+          "predication": null,
+          "protagonist": {
+            "objectDescriptor": {
+              "type": "box",
+              "referent": "box1_instance"
+            }
+          },
+          "action": "be"
+        }
+      }
+    ],
+    "predicate_type": "query",
+    "return_type": "singleton(instance_reference)"
+  }
+}

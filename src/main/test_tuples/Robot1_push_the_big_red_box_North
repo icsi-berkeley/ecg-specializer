@@ -1,0 +1,76 @@
+{
+  "__JSON_Struct__": {
+    "predicate_type": "command",
+    "return_type": "error_descriptor",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "affectedProcess": {
+            "__JSON_Struct__": {
+              "speed": 0.5,
+              "direction": null,
+              "control_state": "ongoing",
+              "goal": null,
+              "action": "move",
+              "heading": "north",
+              "distance": {
+                "__JSON_Struct__": {
+                  "value": 8,
+                  "units": "square"
+                }
+              },
+              "protagonist": {
+                "objectDescriptor": {
+                  "type": "box",
+                  "givenness": "uniquelyIdentifiable",
+                  "size": "big",
+                  "color": "red"
+                }
+              },
+              "kind": "execute"
+            }
+          },
+          "action": "push_move",
+          "kind": "cause",
+          "causalProcess": {
+            "__JSON_Struct__": {
+              "speed": 0.5,
+              "direction": null,
+              "control_state": "ongoing",
+              "goal": null,
+              "action": "forceapplication",
+              "heading": null,
+              "acted_upon": {
+                "objectDescriptor": {
+                  "type": "box",
+                  "givenness": "uniquelyIdentifiable",
+                  "size": "big",
+                  "color": "red"
+                }
+              },
+              "distance": {
+                "__JSON_Struct__": {
+                  "value": 8,
+                  "units": "square"
+                }
+              },
+              "protagonist": {
+                "objectDescriptor": {
+                  "referent": "robot1_instance",
+                  "type": "robot"
+                }
+              },
+              "kind": "execute"
+            }
+          },
+          "causer": {
+            "objectDescriptor": {
+              "referent": "robot1_instance",
+              "type": "robot"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

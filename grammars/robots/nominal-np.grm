@@ -67,7 +67,7 @@ construction  KernelAdj // literal case
       self.m <--> ap.m.modifiedThing
       //ap.m.property <--> n.m.scale  //4/26/13  ***** n.m.scale is implicit, e.g inch
       //ap.m.domain <--> n.m.ontological-category //constraint
-	  n.m.extensions.property.ontological-category <--> ap.m.value
+	  //n.m.extensions.property.ontological-category <--> ap.m.value
 
 
 /** Added on 7/7/14 (ST) */

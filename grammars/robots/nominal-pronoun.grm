@@ -75,4 +75,23 @@ construction It
       self.m.number <-- @singular
 	  self.m.ontological-category <-- @inanimate
 	  self.m.gender <-- @neuter
-	  self.m.referent <-- @antecedent  // added 7/23/14 (ST)
+	  self.m.referent <-- @antecedent  // added 7/23/14 (ST) 
+	  
+	  
+
+// Test: "anaphoric One": "move to the box then move to another one"   8/18/14 (ST) 
+construction One-Anaphora
+	subcase of SingularNoun   	
+	form
+	   constraints
+	      self.f.orth <-- "one"
+	meaning
+	   constraints
+	     self.m.number <-- @singular
+	     self.m.ontological-category <-- @antecedent
+	     //self.m.referent <-- @antecedent	
+	     // self.m.givenness <-- @distinct
+	     
+	     
+	     
+	     	  

@@ -225,6 +225,8 @@ DEFS:
 
 (type table sub artifact)
 
+(type bottle sub artifact moveable)
+
 // (type door sub artifact)  for HowTo
 
 (type instrument sub  physicalEntity) 
@@ -290,6 +292,8 @@ DEFS:
 (type box5-instance sub instance box)
 
 (type box6-instance sub instance box)
+
+(type bottle1 sub instance bottle ) /// bottle1 instance, so named for "grab" in Humanoid Robot Test
 
 (type block1-instance sub instance block)
 
@@ -393,7 +397,7 @@ DEFS:
 
 (type front sub side)
 
-(type antecedent sub entity) // not sure if this is right (added 7/23/14, ST)
+(type antecedent sub physicalEntity) // not sure if this is right (added 7/23/14, ST) -- changed to sub "physicalEntity" on 9/5/14 (ST)
 
 
 //

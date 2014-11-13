@@ -1,0 +1,90 @@
+{
+  "__JSON_Struct__": {
+    "predicate_type": "command",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "heading": null,
+          "control_state": "ongoing",
+          "distance": {
+            "__JSON_Struct__": {
+              "units": "square",
+              "value": 8
+            }
+          },
+          "goal": {
+            "objectDescriptor": {
+              "referent": "box1_instance",
+              "type": "box"
+            }
+          },
+          "speed": 0.5,
+          "protagonist": {
+            "objectDescriptor": {
+              "referent": "robot1_instance",
+              "type": "robot"
+            }
+          },
+          "direction": null,
+          "action": "move",
+          "kind": "execute"
+        }
+      },
+      {
+        "__JSON_Struct__": {
+          "affectedProcess": {
+            "__JSON_Struct__": {
+              "heading": "north",
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "goal": null,
+              "speed": 0.5,
+              "protagonist": "robot1_instance",
+              "direction": null,
+              "action": "move",
+              "kind": "execute"
+            }
+          },
+          "kind": "cause",
+          "causalProcess": {
+            "__JSON_Struct__": {
+              "heading": null,
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "goal": null,
+              "speed": 0.5,
+              "acted_upon": {
+                "objectDescriptor": {
+                  "referent": "box2_instance",
+                  "type": "box"
+                }
+              },
+              "protagonist": "robot1_instance",
+              "direction": null,
+              "action": "forceapplication",
+              "kind": "execute"
+            }
+          },
+          "action": "push_move",
+          "causer": {
+            "objectDescriptor": {
+              "referent": "robot1_instance",
+              "type": "robot"
+            }
+          }
+        }
+      }
+    ],
+    "return_type": "error_descriptor"
+  }
+}

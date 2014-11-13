@@ -1,0 +1,37 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "action": "be",
+          "predication": {
+            "relation": "near",
+            "objectDescriptor": {
+              "givenness": "uniquelyIdentifiable",
+              "type": "box",
+              "color": "green"
+            }
+          },
+          "kind": "query",
+          "specificWh": "which",
+          "protagonist": {
+            "objectDescriptor": {
+              "givenness": "givennessValues",
+              "type": "box",
+              "locationDescriptor": {
+                "relation": "near",
+                "objectDescriptor": {
+                  "givenness": "uniquelyIdentifiable",
+                  "type": "box",
+                  "color": "green"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "return_type": "singleton(instance_reference)",
+    "predicate_type": "query"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "__JSON_Struct__": {
+    "return_type": "error_descriptor",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "conditional",
+          "condition": [
+            {
+              "__JSON_Struct__": {
+                "kind": "execute",
+                "control_state": "ongoing",
+                "predication": {
+                  "color": "red"
+                },
+                "goal": null,
+                "direction": null,
+                "action": "be",
+                "protagonist": {
+                  "objectDescriptor": {
+                    "givenness": "uniquelyIdentifiable",
+                    "type": "box",
+                    "locationDescriptor": {
+                      "objectDescriptor": {
+                        "color": "green",
+                        "givenness": "uniquelyIdentifiable",
+                        "type": "box"
+                      },
+                      "relation": "near"
+                    }
+                  }
+                },
+                "speed": 0.5,
+                "heading": null,
+                "distance": {
+                  "__JSON_Struct__": {
+                    "units": "square",
+                    "value": 8
+                  }
+                }
+              }
+            }
+          ],
+          "command": [
+            {
+              "__JSON_Struct__": {
+                "kind": "execute",
+                "control_state": "ongoing",
+                "goal": {
+                  "objectDescriptor": {
+                    "color": "blue",
+                    "givenness": "uniquelyIdentifiable",
+                    "type": "box"
+                  }
+                },
+                "direction": null,
+                "action": "move",
+                "protagonist": {
+                  "objectDescriptor": {
+                    "referent": "robot1_instance",
+                    "type": "robot"
+                  }
+                },
+                "speed": 0.5,
+                "heading": null,
+                "distance": {
+                  "__JSON_Struct__": {
+                    "units": "square",
+                    "value": 8
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "predicate_type": "conditional"
+  }
+}

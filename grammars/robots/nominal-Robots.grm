@@ -141,7 +141,7 @@ general construction UnitsNP // stands alone, no Specifier  11/24/12
     	self.m <--> k.m
     	//k.m.ontological-category <-- @spatial-units   generalized
 		self.m.units <-> k.m.ontological-category
-		self.m.amount.value <--> num.m
+		self.m.amount.value <--> num.m.value
 		
  construction SpatialQuantityNP // stands alone, no Specifier
   subcase of UnitsNP

@@ -1,0 +1,25 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "query",
+          "specificWh": "which",
+          "predication": {
+            "color": "red"
+          },
+          "protagonist": {
+            "objectDescriptor": {
+              "type": "box",
+              "givenness": "givennessValues",
+              "color": "red"
+            }
+          },
+          "action": "be"
+        }
+      }
+    ],
+    "predicate_type": "query",
+    "return_type": "collection_of(instance_reference)"
+  }
+}

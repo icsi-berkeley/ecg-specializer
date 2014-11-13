@@ -48,6 +48,7 @@ construction A
          self.m.number <-- @singular
    		 self.m.bounding <-- @determinate 	
    		 
+   		  
    		 
 // Numbers added 3/28/14
 general construction Quantifier // different meaning than Specifier  

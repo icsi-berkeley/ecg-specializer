@@ -34,4 +34,7 @@ he is in the room
 was he in the room
 he moved the block into the room
 the red blocks are in the room
+Robot1, move North!
+Robot1, move to Box1!
+Robot1, if the box near the green box is red, push it North!
 ;
