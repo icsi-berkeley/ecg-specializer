@@ -1,0 +1,30 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "predication": {
+            "relation": "near",
+            "objectDescriptor": {
+              "type": "box",
+              "color": "red",
+              "givenness": "uniquelyIdentifiable",
+              "size": "small"
+            }
+          },
+          "kind": "query",
+          "action": "be2",
+          "protagonist": {
+            "objectDescriptor": {
+              "type": "box",
+              "color": "green",
+              "givenness": "uniquelyIdentifiable"
+            }
+          }
+        }
+      }
+    ],
+    "return_type": "boolean",
+    "predicate_type": "query"
+  }
+}

@@ -3,9 +3,11 @@
 
 from morse.builder import ATRV, Pose, Waypoint, Environment, SemanticCamera, PassiveObject,Destination
 from math import pi
+from morse.builder import *
 
 def build():
     # Add a robot with a position sensor and a motion controller
+    
     atrv = ATRV('robot1_instance')
     
     robot_pose = Pose()
@@ -19,6 +21,8 @@ def build():
     motion.add_interface('socket')
     atrv.append(motion)
 
+    
+
 
 
     # motion_collide = Destination()
@@ -28,6 +32,7 @@ def build():
     
     # creates a new instance of the sensor
     camera = SemanticCamera('camera')
+
     
     
     # place your component at the correct location
@@ -63,7 +68,7 @@ def build():
 
     box4 = PassiveObject('environments/indoors-1/boxes', 'RedBox_small')
     box4.setgraspable()
-    box4.translate(x=3, y=-2.0, z=0)
+    box4.translate(x=3, y=-7.0, z=0)
     #box4.rotate(z=0.2)
     box4.properties(Object=True, Label = "box4_instance")
     

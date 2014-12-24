@@ -1,0 +1,33 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "protagonist": {
+            "type": "physicalEntity"
+          },
+          "kind": "execute",
+          "action": "move",
+          "speed": 0.5,
+          "direction": null,
+          "control_state": "ongoing",
+          "distance": {
+            "__JSON_Struct__": {
+              "units": "square",
+              "value": 8
+            }
+          },
+          "heading": null,
+          "goal": {
+            "objectDescriptor": {
+              "type": "location",
+              "referent": "variable"
+            }
+          }
+        }
+      }
+    ],
+    "predicate_type": "definition",
+    "return_type": "error_descriptor"
+  }
+}

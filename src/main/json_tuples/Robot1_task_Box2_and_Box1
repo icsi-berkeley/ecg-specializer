@@ -1,0 +1,106 @@
+{
+  "__JSON_Struct__": {
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "cause",
+          "action": "push_move",
+          "causer": "robot1_instance",
+          "affectedProcess": {
+            "__JSON_Struct__": {
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "heading": "north",
+              "direction": null,
+              "goal": null,
+              "protagonist": "robot1_instance",
+              "action": "move",
+              "speed": 0.5,
+              "kind": "execute"
+            }
+          },
+          "causalProcess": {
+            "__JSON_Struct__": {
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "heading": null,
+              "direction": null,
+              "goal": null,
+              "protagonist": "robot1_instance",
+              "action": "forceapplication",
+              "speed": 0.5,
+              "kind": "execute",
+              "acted_upon": {
+                "objectDescriptor": {
+                  "referent": "box2_instance",
+                  "type": "box"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "__JSON_Struct__": {
+          "kind": "cause",
+          "action": "push_move",
+          "causer": "robot1_instance",
+          "affectedProcess": {
+            "__JSON_Struct__": {
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "heading": "west",
+              "direction": null,
+              "goal": null,
+              "protagonist": "robot1_instance",
+              "action": "move",
+              "speed": 0.5,
+              "kind": "execute"
+            }
+          },
+          "causalProcess": {
+            "__JSON_Struct__": {
+              "control_state": "ongoing",
+              "distance": {
+                "__JSON_Struct__": {
+                  "units": "square",
+                  "value": 8
+                }
+              },
+              "heading": null,
+              "direction": null,
+              "goal": null,
+              "protagonist": "robot1_instance",
+              "action": "forceapplication",
+              "speed": 0.5,
+              "kind": "execute",
+              "acted_upon": {
+                "objectDescriptor": {
+                  "referent": "box1_instance",
+                  "type": "box"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "return_type": "error_descriptor",
+    "predicate_type": "command"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "__JSON_Struct__": {
+    "predicate_type": "conditional",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "conditional",
+          "condition": [
+            {
+              "__JSON_Struct__": {
+                "goal": null,
+                "direction": null,
+                "control_state": "ongoing",
+                "protagonist": {
+                  "objectDescriptor": {
+                    "type": "box",
+                    "givenness": "uniquelyIdentifiable",
+                    "locationDescriptor": {
+                      "relation": "near",
+                      "objectDescriptor": {
+                        "type": "box",
+                        "color": "green",
+                        "givenness": "uniquelyIdentifiable"
+                      }
+                    }
+                  }
+                },
+                "kind": "execute",
+                "action": "be",
+                "speed": 0.5,
+                "heading": "north",
+                "distance": {
+                  "__JSON_Struct__": {
+                    "units": "square",
+                    "value": 6
+                  }
+                },
+                "predication": {
+                  "color": "red"
+                }
+              }
+            }
+          ],
+          "command": [
+            {
+              "__JSON_Struct__": {
+                "goal": {
+                  "objectDescriptor": {
+                    "type": "box",
+                    "color": "blue",
+                    "givenness": "uniquelyIdentifiable"
+                  }
+                },
+                "direction": null,
+                "control_state": "ongoing",
+                "protagonist": {
+                  "objectDescriptor": {
+                    "type": "robot",
+                    "referent": "robot1_instance"
+                  }
+                },
+                "kind": "execute",
+                "action": "move",
+                "speed": 0.5,
+                "heading": "north",
+                "distance": {
+                  "__JSON_Struct__": {
+                    "units": "square",
+                    "value": 6
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "return_type": "error_descriptor"
+  }
+}

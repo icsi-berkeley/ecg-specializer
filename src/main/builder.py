@@ -22,7 +22,7 @@ def build(subsystem):
             box3_instance=Struct(name='box3_instance', type = 'box',
                                                pos=Struct(x=-2, y=-8, z=1), color='green', size = 2)
             box4_instance=Struct(name='box4_instance', type = 'box',
-                                               pos=Struct(x=3, y=-2, z=1), color='red', size =1)
+                                               pos=Struct(x=3, y=-7, z=1), color='red', size =1)
             #grid = [[None]*39 for i in range(30)]
             return Struct(robot1_instance= None, box1_instance=box1_instance,box2_instance=box2_instance,box3_instance=box3_instance, box4_instance=box4_instance)#, grid=grid)
             
@@ -30,6 +30,7 @@ def build(subsystem):
         def morse():
             from morse.simulator import Robot
             from morse.simulator import Box
+
 
             robot1_instance=Robot('robot1_instance')
             world = Worlds.scene()

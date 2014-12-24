@@ -87,15 +87,16 @@ class DispatchingProblemSolver(ProblemSolver):
 
     #dispatch based on ntuple, should be inner fn for solve...
     def solve_ntuple (self,ntuple):
-            try:
-                if (hasattr(ntuple, "predicate_type") and ntuple.predicate_type =="conditional"):
-                     dispatch = getattr(self, 'solve_%s' % "conditional")
-                else:    
-                    dispatch = getattr(self, 'solve_%s' % ntuple.parameters[0].action)
-                dispatch(ntuple)
-            except AttributeError:
-                pprint(ntuple)
-                raise
+        print(ntuple)
+        try:
+            if (hasattr(ntuple, "predicate_type") and ntuple.predicate_type =="conditional"):
+                 dispatch = getattr(self, 'solve_%s' % "conditional")
+            else:    
+                dispatch = getattr(self, 'solve_%s' % ntuple.parameters[0].action)
+            dispatch(ntuple)
+        except AttributeError:
+            pprint(ntuple)
+            raise
 
 
 class RobotProblemSolver(DispatchingProblemSolver):

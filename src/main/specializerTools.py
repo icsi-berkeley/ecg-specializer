@@ -2,7 +2,7 @@
 .. The Specalizer module gathers information from the SemSpec and 
     outputs an ntuple.
 
-.. moduleauthor:: Luca Gilardi <lucag@icsi.berkeley.edu>, Sean Trott
+.. moduleauthor:: Luca Gilardi <lucag@icsi.berkeley.edu>
 
 """
 

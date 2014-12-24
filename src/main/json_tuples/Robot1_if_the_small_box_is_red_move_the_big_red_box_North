@@ -1,0 +1,87 @@
+{
+  "__JSON_Struct__": {
+    "predicate_type": "conditional",
+    "return_type": "error_descriptor",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "kind": "conditional",
+          "command": [
+            {
+              "__JSON_Struct__": {
+                "action": "push_move",
+                "kind": "cause",
+                "causer": "robot1_instance",
+                "affectedProcess": {
+                  "__JSON_Struct__": {
+                    "protagonist": {
+                      "givenness": "uniquelyIdentifiable",
+                      "size": "big",
+                      "type": "box",
+                      "color": "red"
+                    },
+                    "heading": "north",
+                    "speed": 0.5,
+                    "goal": null,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "value": 8,
+                        "units": "square"
+                      }
+                    },
+                    "direction": null,
+                    "action": "move",
+                    "kind": "execute",
+                    "control_state": "ongoing"
+                  }
+                },
+                "causalProcess": {
+                  "__JSON_Struct__": {
+                    "acted_upon": {
+                      "objectDescriptor": {
+                        "givenness": "uniquelyIdentifiable",
+                        "size": "big",
+                        "type": "box",
+                        "color": "red"
+                      }
+                    },
+                    "protagonist": "robot1_instance",
+                    "heading": "north",
+                    "speed": 0.5,
+                    "goal": null,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "value": 8,
+                        "units": "square"
+                      }
+                    },
+                    "direction": null,
+                    "action": "forceapplication",
+                    "kind": "execute",
+                    "control_state": "ongoing"
+                  }
+                }
+              }
+            }
+          ],
+          "condition": {
+            "__JSON_Struct__": {
+              "action": "be",
+              "protagonist": {
+                "objectDescriptor": {
+                  "givenness": "uniquelyIdentifiable",
+                  "size": "small",
+                  "type": "box"
+                }
+              },
+              "predication": {
+                "color": "red"
+              },
+              "kind": "query"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

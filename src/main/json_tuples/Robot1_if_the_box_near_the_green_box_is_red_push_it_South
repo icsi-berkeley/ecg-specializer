@@ -1,0 +1,108 @@
+{
+  "__JSON_Struct__": {
+    "return_type": "error_descriptor",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "condition": {
+            "__JSON_Struct__": {
+              "protagonist": {
+                "objectDescriptor": {
+                  "type": "box",
+                  "givenness": "uniquelyIdentifiable",
+                  "locationDescriptor": {
+                    "relation": "near",
+                    "objectDescriptor": {
+                      "type": "box",
+                      "givenness": "uniquelyIdentifiable",
+                      "color": "green"
+                    }
+                  }
+                }
+              },
+              "predication": {
+                "color": "red"
+              },
+              "kind": "query",
+              "action": "be"
+            }
+          },
+          "kind": "conditional",
+          "command": [
+            {
+              "__JSON_Struct__": {
+                "causalProcess": {
+                  "__JSON_Struct__": {
+                    "direction": null,
+                    "protagonist": "robot1_instance",
+                    "heading": null,
+                    "control_state": "ongoing",
+                    "speed": 0.5,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "units": "square",
+                        "value": 8
+                      }
+                    },
+                    "acted_upon": {
+                      "objectDescriptor": {
+                        "type": "box",
+                        "givenness": "uniquelyIdentifiable",
+                        "locationDescriptor": {
+                          "relation": "near",
+                          "objectDescriptor": {
+                            "type": "box",
+                            "givenness": "uniquelyIdentifiable",
+                            "color": "green"
+                          }
+                        }
+                      }
+                    },
+                    "kind": "execute",
+                    "action": "forceapplication",
+                    "goal": null
+                  }
+                },
+                "kind": "cause",
+                "affectedProcess": {
+                  "__JSON_Struct__": {
+                    "direction": null,
+                    "protagonist": {
+                      "objectDescriptor": {
+                        "type": "box",
+                        "givenness": "uniquelyIdentifiable",
+                        "locationDescriptor": {
+                          "relation": "near",
+                          "objectDescriptor": {
+                            "type": "box",
+                            "givenness": "uniquelyIdentifiable",
+                            "color": "green"
+                          }
+                        }
+                      }
+                    },
+                    "heading": "south",
+                    "control_state": "ongoing",
+                    "speed": 0.5,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "units": "square",
+                        "value": 8
+                      }
+                    },
+                    "kind": "execute",
+                    "action": null,
+                    "goal": null
+                  }
+                },
+                "causer": "robot1_instance",
+                "action": "push_move"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "predicate_type": "conditional"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "__JSON_Struct__": {
+    "predicate_type": "conditional",
+    "parameters": [
+      {
+        "__JSON_Struct__": {
+          "command": [
+            {
+              "__JSON_Struct__": {
+                "action": "push_move",
+                "causalProcess": {
+                  "__JSON_Struct__": {
+                    "action": "forceapplication",
+                    "acted_upon": {
+                      "objectDescriptor": {
+                        "locationDescriptor": {
+                          "relation": "near",
+                          "objectDescriptor": {
+                            "color": "green",
+                            "type": "box",
+                            "givenness": "uniquelyIdentifiable"
+                          }
+                        },
+                        "type": "box",
+                        "givenness": "uniquelyIdentifiable"
+                      }
+                    },
+                    "direction": null,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "value": 8,
+                        "units": "square"
+                      }
+                    },
+                    "protagonist": {
+                      "objectDescriptor": {
+                        "type": "person",
+                        "referent": "john_instance"
+                      }
+                    },
+                    "control_state": "ongoing",
+                    "kind": "execute",
+                    "heading": null,
+                    "speed": 0.5,
+                    "goal": null
+                  }
+                },
+                "affectedProcess": {
+                  "__JSON_Struct__": {
+                    "action": "move",
+                    "direction": null,
+                    "distance": {
+                      "__JSON_Struct__": {
+                        "value": 8,
+                        "units": "square"
+                      }
+                    },
+                    "protagonist": {
+                      "objectDescriptor": {
+                        "locationDescriptor": {
+                          "relation": "near",
+                          "objectDescriptor": {
+                            "color": "green",
+                            "type": "box",
+                            "givenness": "uniquelyIdentifiable"
+                          }
+                        },
+                        "type": "box",
+                        "givenness": "uniquelyIdentifiable"
+                      }
+                    },
+                    "control_state": "ongoing",
+                    "kind": "execute",
+                    "heading": "south",
+                    "speed": 0.5,
+                    "goal": null
+                  }
+                },
+                "causer": {
+                  "objectDescriptor": {
+                    "type": "person",
+                    "referent": "john_instance"
+                  }
+                },
+                "kind": "cause"
+              }
+            }
+          ],
+          "kind": "conditional",
+          "condition": [
+            {
+              "__JSON_Struct__": {
+                "action": "be",
+                "predication": {
+                  "color": "red"
+                },
+                "direction": null,
+                "distance": {
+                  "__JSON_Struct__": {
+                    "value": 8,
+                    "units": "square"
+                  }
+                },
+                "protagonist": {
+                  "objectDescriptor": {
+                    "locationDescriptor": {
+                      "relation": "near",
+                      "objectDescriptor": {
+                        "color": "green",
+                        "type": "box",
+                        "givenness": "uniquelyIdentifiable"
+                      }
+                    },
+                    "type": "box",
+                    "givenness": "uniquelyIdentifiable"
+                  }
+                },
+                "control_state": "ongoing",
+                "kind": "execute",
+                "heading": null,
+                "speed": 0.5,
+                "goal": null
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "return_type": "error_descriptor"
+  }
+}
