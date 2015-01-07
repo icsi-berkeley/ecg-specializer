@@ -257,7 +257,7 @@ construction North  //  maybe not a noun *********************needs work 11/14/1
    subcase of Word, Directional
    form
       constraints
-         self.f.orth <-- "North"
+         self.f.orth <-- "North"  
     meaning: HeadingSchema
       constraints
         self.m.tag <-- @north

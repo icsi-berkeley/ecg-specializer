@@ -5,6 +5,9 @@
 schema WordForm
   roles
     orth 
+    lemma
+  constraints
+     lemma <-- "*"
 
 // REFERENT DESCRIPTOR (RD) schemas
 
