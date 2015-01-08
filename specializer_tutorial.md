@@ -8,7 +8,9 @@ Link to "compling" directory: <https://github.com/icsi-berkeley/ecg-specializer>
 
 * Should contain following directories: lib, src, and grammars
 
-Although there is a GUI in the form of the ECG Workbench (Gilardi & Feldman, 2008), it is also possible to run the ECG Analyzer from a UNIX environment with access to the proper files. This method is used in connecting the Analyzer to an "action" end – the Problem Solver (Figure 1). This particular tutorial is based on a simple Robot simulation application, but the simulator (MORSE: [http://www.openrobots.org/morse/doc/1.2/user/installation.html](http://www.openrobots.org/morse/doc/1.2/user/installation.html)) is platform-dependent and is not included. However, utterances from the "robots" grammar will yield N-Tuples (Figure 1), which can be viewed interactively in a "debugging" mode; these N-Tuples provide specifications to the Problem Solver in the form of a Python dictionary converting the initial linguistic input to a task description.
+Although there is a GUI in the form of the ECG Workbench (Gilardi & Feldman, 2008), it is also possible to run the ECG Analyzer from a UNIX environment with access to the proper files. This method is used in connecting the Analyzer to an "action" end – the Problem Solver (Figure 1). This particular tutorial is based on a simple Robot simulation application; the simulator (MORSE: [http://www.openrobots.org/morse/doc/1.2/user/installation.html](http://www.openrobots.org/morse/doc/1.2/user/installation.html)) is platform-dependent. The necessary files are included in the directory (under src/main/morse), but the simulator itself must be installed separately. A guide for Morse installation is included here: https://github.com/icsi-berkeley/ecg-specializer/blob/master/morse_installation.md 
+
+However, utterances from the "robots" grammar will yield N-Tuples (Figure 1), which can be viewed interactively in a "debugging" mode; these N-Tuples provide specifications to the Problem Solver in the form of a Python dictionary converting the initial linguistic input to a task description.
 
 ![Robot Simulation](RobotSim.jpg)
 
@@ -59,6 +61,21 @@ $ set JYTHONPATH=lib\compling.core.jar;src\main
 
 $ jython -m analyzer grammars\robots.prefs
 ```
+
+#### **Initiating the Morse Simulator:**
+
+If you have Blender and Morse installed (https://github.com/icsi-berkeley/ecg-specializer/blob/master/morse_installation.md), you can also run the Morse simulator, which allows you to view the robot’s actions (as opposed to simply seeing N-Tuples). Note that Morse has only been tested for Linux; it works on Macs, but it may need modification to run on Windows. To run the simulation, open a new tab on Terminal (or whatever Command prompt you’re using). You need to set the $MORSE_BLENDER environment variable. For me, this looks like:
+
+```
+$ export MORSE_BLENDER=/Users/seantrott/Downloads/Blender/blender.app/Contents/MacOS/blender
+```
+The path above should lead to where you have Blender stored on your computer. Be sure to point to the executable, found in the “package contents”, not just the Application.
+
+Once you set the $MORSE_BLENDER variable, you can run the morse scene:
+```
+$morse run src/main/morse/scene.py
+```
+This will open up Morse. If everything is installed correctly, you should see a graphics simulator with a vehicle robot and four colored boxes.
 
 #### **Viewing and Editing the Grammar:**If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
 

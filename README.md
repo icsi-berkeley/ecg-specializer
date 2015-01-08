@@ -10,7 +10,7 @@ https://github.com/icsi-berkeley/ecg-specializer/blob/master/specializer_tutoria
 * src/main/morse: Contains files necessary to run Morse simulator (if you have Morse and Blender installed).
 <br>
 <br>
-Note: If you’re running Yosemite (the new Mac OS), there are certain incompatibilities with Morse. These can be addressed, and a new tutorial for installing Morse has been written: https://github.com/icsi-berkeley/ecg-specializer/blob/master/specializer_tutorial.md
+Note: If you’re running Yosemite (the new Mac OS), there are certain incompatibilities with Morse. These can be addressed, and a new tutorial for installing Morse has been written: https://github.com/icsi-berkeley/ecg-specializer/blob/master/morse_installation.md
 <br>
 
 <br>
