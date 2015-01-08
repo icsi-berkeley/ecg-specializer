@@ -92,4 +92,59 @@ If you are having issues with the installation, the Morse team is very helpful w
 
 ##### Yosemite Installation:
 
+As mentioned above, there are certain incompatibilities that arise between Morse and the new Yosemite OS for Macs. Some of these may have been addressed with the newest Morse release (1.2.2), but some are not. One issue on Yosemite is that versions of Blender before 2.71 cause a “segmentation fault”. This is problematic because Morse 1.2 requires a version of Blender between 2.62 and 2.7. In order to use Blender versions past 2.7, you’ll need at least Morse 1.2.1 (which bumps the max Blender version to 2.72). See the previous section for updating to Morse 1.2.1 (if you only have 1.2).
+
+###### Problem 1
+
+If you want to use a later version of Blender, such as 2.72b (which is what we used for Yosemite), you can change the “STRICT_MAX_BLENDER_VERSION” variable in the morse initiation file. Navigate in Terminal to:
+
+```
+$ cd /usr/local/Cellar/morse-simulator/1.2.1/bin
+```
+(Depending on the version, you might type “1.2” or “1.2.2” instead of “1.2.1”.)
+
+There should be a file called “morse” in there. Edit it in VIM:
+```
+$ vi morse
+```
+
+Scroll down to the line that reads:
+STRICT_MAX_BLENDER_VERSION = “2.72” *
+* Could be a separate number.
+Change this in the VIM editor to something like “2.73”, if you’re using Blender 2.72b. This is a read-only file, so overwrite the file using “:wq!”. 
+
+This should allow you to use more advanced versions of Blender. 
+
+###### Problem 2
+
+Another problem we ran into was an error that read: “Fatal Python error: PyThreadState_Get: no current thread”. This is due to incompatibilities between Morse and certain Python versions. Part of the issue is that Blender must be compiled with a certain Python3 version, and Morse must be compiled with a certain Python3 version; if those versions are different, Morse raises an error. There are likely multiple ways to deal with this, but the Morse moderators in this thread (https://github.com/morse-simulator/morse/issues/576) suggested a solution that worked for us.
+
+First, make sure the version of Python3 you’ve installed is 3.4.2. If it’s not, uninstall it using “brew uninstall python3” and then reinstall the correct version.
+
+If you had to change your Python3 version, then also uninstall morse:
+```
+$ brew uninstall morse-simulator
+```
+
+Reinstall it once you’ve installed the correct Python3 version.
+```
+brew install morse-simulator
+```
+
+* Note that if you follow these directions from the beginning, you shouldn’t have to uninstall or re-install anything.
+
+Now, you can edit the same “morse” file as before (in Problem 1). Open it up in VIM, and navigate down to a line that reads:
+```
+########
+# “Check python version within blender”
+```
+
+Comment out all the lines between “python_version” and the next function (def get_config_file()) using the # comment syntax or the “”” comment syntax for blocks of text. Save the file using “:wq!”. 
+
+This will stop Morse from trying to check the Blender’s python version. After doing this, the simulation ran smoothly on our machines.
+
+
+
+
+
 
