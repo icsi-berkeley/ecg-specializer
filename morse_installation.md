@@ -16,7 +16,11 @@ The other tutorial for this project (https://github.com/icsi-berkeley/ecg-specia
 The Morse website conveniently includes instructions (http://www.openrobots.org/morse/doc/1.2/user/installation.html) for installation. The specific process we followed will be explained below, but feel free to use one of the options on the site (we used Homebrew for installation, but there are also manual install options). Additionally, there are certain compatibilities that arose on the Yosemite update. If you don’t have Yosemite, don’t bother reading that section (just read the “installation procedure section”), but if you do, you’ll need to make additional changes.
 
 ##### Installation procedure:
-1) Install Homebrew (requires Xcode and command line tools): ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+1) Install Homebrew (requires Xcode and command line tools): 
+
+```
+$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+```
 
 2) Download Blender (http://www.blender.org/download/). I use a past version of Blender: 2.71, found in the list of versions here: http://download.blender.org/release/. You can install the app wherever you want on the computer (/Applications is a safe bet), just make sure the $MORSE_BLENDER variable points to the executable, found at the path: blender.app/Contents/MacOS/blender
 
