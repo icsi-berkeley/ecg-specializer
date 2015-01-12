@@ -341,6 +341,7 @@ class RobotProblemSolver(DispatchingProblemSolver):
             obj = self.get_described_obj(params.protagonist['objectDescriptor'])
             if obj is not None:
                 print(obj.name)
+            self._wh = False
             return obj
         else:
             objs = self.get_described_objects(params.protagonist['objectDescriptor'], multiple=True)
@@ -350,6 +351,7 @@ class RobotProblemSolver(DispatchingProblemSolver):
             else:
                 for i in objs:
                     print(i.name)
+            self._wh = False
 
     def eval_what(self, params, num, referentType):
         return None
