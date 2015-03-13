@@ -64,7 +64,7 @@ $ jython -m analyzer grammars\robots.prefs
 
 #### **Initiating the Morse Simulator:**
 
-If you have Blender and Morse installed (https://github.com/icsi-berkeley/ecg-specializer/blob/master/morse_installation.md), you can also run the Morse simulator, which allows you to view the robot’s actions (as opposed to simply seeing N-Tuples). Note that Morse has only been tested for Linux; it works on Macs, but it may need modification to run on Windows. To run the simulation, open a new tab on Terminal (or whatever Command prompt you’re using). You need to set the $MORSE_BLENDER environment variable. For me, this looks like:
+If you have Blender and Morse installed (https://github.com/icsi-berkeley/ecg-specializer/blob/master/morse_installation.md), you can also run the Morse simulator, which allows you to view the robot’s actions (as opposed to simply seeing N-Tuples). Note that Morse has only been tested for Linux; it also works on Macs, but it may need modification to run on Windows. To run the simulation, open a new tab on Terminal (or whatever Command prompt you’re using). You need to set the $MORSE_BLENDER environment variable. For me, this looks like:
 
 ```
 $ export MORSE_BLENDER=/Users/seantrott/Downloads/Blender/blender.app/Contents/MacOS/blender
@@ -76,6 +76,27 @@ Once you set the $MORSE_BLENDER variable, you can run the morse scene:
 $morse run src/main/morse/scene.py
 ```
 This will open up Morse. If everything is installed correctly, you should see a graphics simulator with a vehicle robot and four colored boxes.
+
+Note here that Morse may encounter an error related to the default blend files that come with the Morse installation; our scene makes use of a modified "boxes.blend" file. The default file is in the "indoors-1" folder, located in your /usr/local folder (where the Morse data is installed):
+
+```
+/usr/local/share/morse/data/environments/indoors-1
+```
+
+We've included an "indoors-1" folder with the modified blend files. To run the demo correctly, you should move the indoors-1 folder into where the rest of the Morse data is stored:
+
+```
+$ mv indoors-1 /usr/local/share/morse/data/environments
+```
+
+Alternatively, you can move just the "boxes.blend" file:
+
+```
+$ mv indoors-1/boxes.blend /usr/local/share/morse/data/environments/indoors-1
+```
+
+If at this point you still encounter errors with Morse, make sure you've followed all the steps and checks in the Morse installation tutorial. You can contact me at <seantrott at icsi dot berkeley dot edu> if the issue remains unresolved, and I'll do my best to help.
+
 
 #### **Viewing and Editing the Grammar:**
 
