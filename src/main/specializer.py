@@ -642,8 +642,9 @@ def main_loop(analyzer, solver=NullProblemSolver(), specializer=RobotSpecializer
                 solver.names()
                 specialize = False
             if ans.lower() == 'q':
-                return
                 solver.close()
+                return
+                #solver.close()
             elif ans.lower()== 'h':
                 solver.test()
             elif ans and specialize:

@@ -1,4 +1,4 @@
-## **Running the Analyzer from a UNIX Environment**
+## **Using Natural Language to Drive Robot Action**
 
 Sean Trott (Draft 2)
 
@@ -45,7 +45,7 @@ User:compling$ export JYTHONPATH=lib/compling.core.jar:src/main
 ```
 This connects the Java ECG Analyzer, which is located in the /lib folder, to the /src/main folder, which contains all of the Python files, such as specializer.py and analyzer.py. Once this is done, enter the following JYTHON command:
 ```
-User:compling$ jython –m analyzer _grammars/_robots.prefs [^1]
+User:compling$ jython -m analyzer grammars/robots.prefs [^1]
 ```
 This connects the grammar to a local host, which can be accessed from elsewhere. For example, the Specializer module sets up a proxy Analyzer class connecting to that host, and calls the "parse" function from there.
 
@@ -77,7 +77,11 @@ $morse run src/main/morse/scene.py
 ```
 This will open up Morse. If everything is installed correctly, you should see a graphics simulator with a vehicle robot and four colored boxes.
 
-#### **Viewing and Editing the Grammar:**If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
+#### **Viewing and Editing the Grammar:**
+
+If you haven’t already, you can view the “robots” grammar in ECG Workbench (available here: <http://www1.icsi.berkeley.edu/~lucag/>). 
+
+Once you’ve downloaded and opened the Workbench, click the “Grammar” Menu, and select “Open Preferences File”. Navigate to the “robot.prefs” file – or whichever grammar you wish to view and edit – and open it. From here, you can make changes to the grammar and parse sentences to view the SemSpec.
 
 ## **Specializer**
 
@@ -98,6 +102,12 @@ User:compling$ python3 src/main/specializer.py [^2]
 If you're running Windows, enter this command:
 ```
 User:compling$ python src\main\specializer.py
+```
+
+If you're running the MORSE Simulator, you can indicate to the specializer that you want to send the n-tuples to the MORSE Problem Solver (rather than a text-based solver). This will publish commands in the simulated world, so you can view the results of your language input. To do this, run the specializer using this command:
+
+```
+User:compling$ python3 src/main/specializer.py -s morse"
 ```
 
 

@@ -595,8 +595,7 @@ class RobotProblemSolver(DispatchingProblemSolver):
     def solve_step(self, ntuple):
         print('step:', ntuple)
         
-    def close(self):
-        self.world.robot1_instance.close()
+    
 
 class MockProblemSolver(RobotProblemSolver):
     def __init__(self, **kw):
@@ -619,12 +618,18 @@ class MockProblemSolver(RobotProblemSolver):
         print("the world is now:")   
         pprint(self.world)
 
+    def close(self):
+        return
+
     
  
 class MorseProblemSolver(RobotProblemSolver):
     def __init__(self, **kw):
         update(self, world=build('morse'))
         home_pos = self.world.robot1_instance.pos
+
+    def close(self):
+        self.world.robot1_instance.close()
 
     #ax, ay are start location bx by are end location
     #returns True if there is an obstacle in the path
