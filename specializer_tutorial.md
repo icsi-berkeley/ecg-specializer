@@ -83,7 +83,7 @@ Note here that Morse may encounter an error related to the default blend files t
 /usr/local/share/morse/data/environments/indoors-1
 ```
 
-We've included an "indoors-1" folder with the modified blend files. To run the demo correctly, you should move the indoors-1 folder into where the rest of the Morse data is stored:
+We've included an "indoors-1" folder with the modified blend files. To run the demo correctly, you should move the indoors-1 folder into where the rest of the Morse data is stored (make sure you're cd'd into the compling Git folder first; if not, provide the proper path for the indoors-1 folder):
 
 ```
 $ mv indoors-1 /usr/local/share/morse/data/environments
