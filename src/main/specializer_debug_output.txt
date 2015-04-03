@@ -543,3 +543,19 @@ Struct(parameters=[Struct(condition=[Struct(goal=None, heading='north', control_
 Conditional_Imperative 
 Robot1, if the box near the green box is red, move to the blue box! 
 Struct(predicate_type='conditional', parameters=[Struct(kind='conditional', condition=[Struct(goal=None, direction=None, control_state='ongoing', protagonist={'objectDescriptor': {'type': 'box', 'givenness': 'uniquelyIdentifiable', 'locationDescriptor': {'relation': 'near', 'objectDescriptor': {'type': 'box', 'color': 'green', 'givenness': 'uniquelyIdentifiable'}}}}, kind='execute', action='be', speed=0.5, heading='north', distance=Struct(units='square', value=6), predication={'color': 'red'})], command=[Struct(goal={'objectDescriptor': {'type': 'box', 'color': 'blue', 'givenness': 'uniquelyIdentifiable'}}, direction=None, control_state='ongoing', protagonist={'objectDescriptor': {'type': 'robot', 'referent': 'robot1_instance'}}, kind='execute', action='move', speed=0.5, heading='north', distance=Struct(units='square', value=6))])], return_type='error_descriptor')
+
+Imperative 
+Robot1, move 4 inches South! 
+Struct(parameters=[Struct(goal=None, speed=0.5, direction=None, heading='south', action='move', control_state='ongoing', kind='execute', protagonist={'objectDescriptor': {'referent': 'robot1_instance', 'type': 'robot'}}, distance=Struct(value=4, units='inch'))], predicate_type='command', return_type='error_descriptor')
+
+Imperative 
+Robot1, move 2 inches South! 
+Struct(parameters=[Struct(goal=None, speed=0.5, direction=None, heading='south', action='move', control_state='ongoing', kind='execute', protagonist={'objectDescriptor': {'referent': 'robot1_instance', 'type': 'robot'}}, distance=Struct(value=2, units='inch'))], predicate_type='command', return_type='error_descriptor')
+
+Imperative 
+Robot1, move 4 inches South! 
+Struct(parameters=[Struct(goal=None, speed=0.5, direction=None, heading='south', action='move', control_state='ongoing', kind='execute', protagonist={'objectDescriptor': {'referent': 'robot1_instance', 'type': 'robot'}}, distance=Struct(value=4, units='inch'))], predicate_type='command', return_type='error_descriptor')
+
+Imperative 
+Robot1, move East! 
+Struct(parameters=[Struct(goal=None, speed=0.5, direction=None, heading='east', action='move', control_state='ongoing', kind='execute', protagonist={'objectDescriptor': {'referent': 'robot1_instance', 'type': 'robot'}}, distance=Struct(value=8, units='square'))], predicate_type='command', return_type='error_descriptor')

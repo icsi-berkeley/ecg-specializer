@@ -128,7 +128,7 @@ User:compling$ python src\main\specializer.py
 If you're running the MORSE Simulator, you can indicate to the specializer that you want to send the n-tuples to the MORSE Problem Solver (rather than a text-based solver). This will publish commands in the simulated world, so you can view the results of your language input. To do this, run the specializer using this command:
 
 ```
-User:compling$ python3 src/main/specializer.py -s morse"
+User:compling$ python3 src/main/specializer.py "-s morse"
 ```
 
 
